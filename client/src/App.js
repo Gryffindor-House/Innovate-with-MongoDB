@@ -1,14 +1,13 @@
 import "./App.css";
 
 import LoginForm from "./components/loginform";
-
-import Nav from "./components/nav";
+import Footer from "./components/footer";
 
 function App() {
   return (
     <div className="App">
-      <Nav />
       <LoginForm />
+      <Footer />
     </div>
   );
 }
