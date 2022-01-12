@@ -33,7 +33,7 @@ function Nav (){
                 </a>
               </li>
               <li>
-                <a href='#contact' className='page-scroll'>
+                <a href='#loginform' className='page-scroll'>
                   Contact
                 </a>
               </li>
