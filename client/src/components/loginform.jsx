@@ -10,7 +10,7 @@ function LoginForm() {
               <div className="section-title">
                 <h2>Get In Touch</h2>
                 <p>
-                  Please fill out the form below to send us an email and we will
+                  For any queries, Please fill out the form below to send us an email and we will
                   get back to you as soon as possible.
                 </p>
               </div>
@@ -68,7 +68,7 @@ function LoginForm() {
                 <span>
                   <i className="fa fa-map-marker"></i> Address
                 </span>
-                {true ? "address" : "loading"}
+                {true ? "Trustpuram, Kodambakkam" : "loading"}
               </p>
             </div>
             <div className="contact-item">
@@ -76,7 +76,7 @@ function LoginForm() {
                 <span>
                   <i className="fa fa-phone"></i> Phone
                 </span>{" "}
-                {true ? "mobile" : "loading"}
+                {true ? "9498095563" : "loading"}
               </p>
             </div>
             <div className="contact-item">
@@ -84,7 +84,7 @@ function LoginForm() {
                 <span>
                   <i className="fa fa-envelope-o"></i> Email
                 </span>{" "}
-                {true ? "email" : "loading"}
+                {true ? "ashwinblaze111@gmail.com" : "loading"}
               </p>
             </div>
           </div>
