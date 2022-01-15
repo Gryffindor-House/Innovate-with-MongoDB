@@ -1,6 +1,23 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useUserAuth } from "../../context/UserAuthContext";
+import GoogleButton from "react-google-button";
 
 function LoginForm() {
+  const { googleSignIn } = useUserAuth();
+  const navigate = useNavigate();
+
+  const handleGoogleSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      await googleSignIn();
+      console.log("Logged In");
+      navigate("/user");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <div>
       <div id="contact">
@@ -45,6 +62,7 @@ function LoginForm() {
                   Sign In
                 </button>
               </form>
+              <GoogleButton onClick={handleGoogleSignIn} />
             </div>
           </div>
         </div>
