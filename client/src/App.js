@@ -1,6 +1,6 @@
 import "./App.css";
 import { Home } from "./components/homepage/home";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/routes/ProtectedRoute";
 import { Container, Row, Col } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
