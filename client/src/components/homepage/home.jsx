@@ -8,10 +8,10 @@ export const Home = () => {
   return (
     <>
       <Nav />
-      <div className="row">
+      <div className="flex">
         <About />
       </div>
-      <div className="row">
+      <div className="flex">
         <LoginForm />
       </div>
       <Footer />

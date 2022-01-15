@@ -3,7 +3,7 @@ import React from "react";
 function Footer() {
   return (
     <div id="footer">
-      <div className="container text-center">
+      <div className='container text-center'>
         <footer>
           <ul class="list-inline">
             <li class="list-inline-item">

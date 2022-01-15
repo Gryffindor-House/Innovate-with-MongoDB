@@ -8,7 +8,7 @@ import { Dashboard } from "./components/userpage/Dashboard";
 
 function App() {
   return (
-    <Container>
+    <div>
       <UserAuthContextProvider>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -22,7 +22,7 @@ function App() {
           />
         </Routes>
       </UserAuthContextProvider>
-    </Container>
+    </div>
   );
 }
 
