@@ -1,7 +1,7 @@
 import "./App.css";
 import { Home } from "./components/homepage/home";
 import ProtectedRoute from "./components/routes/ProtectedRoute";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
 import { Dashboard } from "./components/userpage/Dashboard";
