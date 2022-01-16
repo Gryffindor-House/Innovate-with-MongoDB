@@ -7,13 +7,7 @@ function Footer() {
         <footer>
           <ul class="list-inline">
             <li class="list-inline-item">
-              <a href="#">Home</a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">Services</a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">About Our Team</a>
+              <a href="https://github.com/Gryffindor-House" target="_blank">Our Team</a>
             </li>
           </ul>
           <p class="copyright">Team Gryffindor</p>
