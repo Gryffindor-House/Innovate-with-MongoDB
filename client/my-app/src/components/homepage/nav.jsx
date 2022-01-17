@@ -1,51 +1,60 @@
-import React, { Component } from "react";
+import React from "react";
+import {
+  Box,
+  Stack,
+  Heading,
+  Flex,
+  Text,
+  Button,
+  useDisclosure
+} from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
-function Nav() {
+const Nav = (props) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const handleToggle = () => (isOpen ? onClose() : onOpen());
+
   return (
-    <nav id="menu" className="navbar navbar-default navbar-fixed-top">
-      <div className="container">
-        <div className="navbar-header">
-          <button
-            type="button"
-            className="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1"
-          >
-            {" "}
-            <span className="sr-only">Toggle navigation</span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
-          </button>
-          <a className="navbar-brand page-scroll" href="#page-top">
-            Weather App
-          </a>{" "}
-        </div>
-        <div
-          className="collapse navbar-collapse"
-          id="bs-example-navbar-collapse-1"
-        >
-          <ul className="nav navbar-nav navbar-right">
-            <li>
-              <a href="#about" className="page-scroll">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#home" className="page-scroll">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#loginform" className="page-scroll">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <Flex
+      as="nav"
+      align="center"
+      justify="space-between"
+      wrap="wrap"
+      padding={6}
+      bg="teal.500"
+      color="white"
+      {...props}
+    >
+      <Flex align="center" mr={5}>
+        <Heading as="h1" size="lg" letterSpacing={"tighter"}>
+          Ashwin Thomas
+        </Heading>
+      </Flex>
+
+      <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
+        <HamburgerIcon />
+      </Box>
+
+      <Stack
+        direction={{ base: "column", md: "row" }}
+        display={{ base: isOpen ? "block" : "none", md: "flex" }}
+        width={{ base: "full", md: "auto" }}
+        alignItems="center"
+        flexGrow={1}
+        mt={{ base: 4, md: 0 }}
+      >
+        <Text>About</Text>
+        <Text>Login</Text>
+        <Text>Contact</Text>
+      </Stack>
+
+      <Box
+        display={{ base: isOpen ? "block" : "none", md: "block" }}
+        mt={{ base: 4, md: 0 }}
+      >
+      </Box>
+    </Flex>
   );
-}
+};
 
 export default Nav;
