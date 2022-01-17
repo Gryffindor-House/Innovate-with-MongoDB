@@ -1,9 +1,12 @@
 import React from "react";
+import { Container,VStack } from '@chakra-ui/react'
+
 
 function About() {
   return (
-    <div id="about">
-      <div className="container">
+    <VStack>
+    <Container maxW='xl' centerContent>
+      <box>
         <div className="row">
           <div className="col-xs-12 col-md-6">
             {" "}
@@ -20,8 +23,9 @@ function About() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </box>
+    </Container>
+    </VStack>
   );
 };
 

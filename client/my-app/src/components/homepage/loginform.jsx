@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../context/UserAuthContext";
 import GoogleButton from "react-google-button";
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  Input,
+  Button,
+  InputGroup,
+  InputRightElement
+} from '@chakra-ui/react'
+
 
 function LoginForm() {
   const { googleSignIn } = useUserAuth();
@@ -18,6 +29,18 @@ function LoginForm() {
     }
   };
 
+  const [input, setInput] = useState('')
+
+  const handleInputChange = (e) => setInput(e.target.value)
+
+  const isError = input === ''
+
+    const [show, setShow] = React.useState(false)
+
+    const handleClick = () => setShow(!show)
+
+  
+
   return (
     <div>
       <div id='contact'>
@@ -30,42 +53,38 @@ function LoginForm() {
                   Login to our Comprehensive Weather App Dashboard!
                 </p>
               </div>
-              <form name='sentMessage' validate>
-                <div className='row'>
-                  <div className='col-md-7'>
-                    <div className='form-group'>
-                      <input
-                        type='text'
-                        id='name'
-                        name='name'
-                        className='form-control'
-                        placeholder='Name'
-                        required
-                      />
-                      <p className='help-block text-danger'></p>
-                      </div>
-                    </div>
-                  </div>
-                <div className='row'>
-                  <div className='col-md-7'>
-                    <div className='form-group'>
-                      <input
-                        type='password'
-                        id='password'
-                        name='password'
-                        className='form-control'
-                        placeholder='Enter Password'
-                        required
-                      />
-                      <p className='help-block text-danger'></p>
-                    </div>
-                  </div>
-                </div>
-                <button type='submit' className='btn btn-custom btn-lg'>
-                  Sign In
-                </button>
+              <FormControl isInvalid={isError}>
+      <FormLabel htmlFor='email'>Email</FormLabel>
+      <Input
+        id='email'
+        type='email'
+        value={input}
+        onChange={handleInputChange}
+      />
+      {!isError ? (
+        <FormHelperText>
+          Enter the email you'd like to receive the newsletter on.
+        </FormHelperText>
+      ) : (
+        <FormErrorMessage>Email is required.</FormErrorMessage>
+      )}
+      <InputGroup size='md'>
+      <Input
+        pr='4.5rem'
+        type={show ? 'text' : 'password'}
+        placeholder='Enter password'
+      />
+      <InputRightElement width='4.5rem'>
+        <Button h='1.75rem' size='sm' onClick={handleClick}>
+          {show ? 'Hide' : 'Show'}
+        </Button>
+      </InputRightElement>
+    </InputGroup>
+            <Button colorScheme='teal' size='lg'>
+    Button
+  </Button>
                 <GoogleButton onClick={handleGoogleSignIn} />
-              </form>
+                </FormControl>
             </div>
           </div>
           <div className='col-md-3 col-md-offset-1 contact-info'>
