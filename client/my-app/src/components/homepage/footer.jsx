@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Text, HStack } from '@chakra-ui/react';
 
-export const Footer = () => {
+function Footer(){
   return (
     <Flex
       bg="white"
@@ -25,3 +25,5 @@ export const Footer = () => {
     </Flex>
   );
 };
+
+export default Footer;

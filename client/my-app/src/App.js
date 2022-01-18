@@ -1,22 +1,27 @@
-import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
+import { Home } from "./components/homepage/home";
+import ProtectedRoute from "./components/routes/ProtectedRoute";
+import { Routes, Route } from "react-router-dom";
+import { UserAuthContextProvider } from "./context/UserAuthContext";
+import { Dashboard } from "./components/userpage/Dashboard";
+import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}></Grid>
-      </Box>
-    </ChakraProvider>
+    <ChakraProvider>
+      <UserAuthContextProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/user"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </UserAuthContextProvider>
+      </ChakraProvider>
   );
 }
 
