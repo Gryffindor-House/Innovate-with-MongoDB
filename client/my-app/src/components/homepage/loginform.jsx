@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FcGoogle } from 'react-icons/fc';
 
 import {
   Button,
@@ -11,11 +12,12 @@ import {
   Link,
   Stack,
   Image,
+  Center,
+  Text,
 } from '@chakra-ui/react';
 
 import { useUserAuth } from '../../context/UserAuthContext';
 import { useNavigate } from 'react-router-dom';
-import GoogleButton from 'react-google-button';
 
 export default function LoginForm() {
   const { googleSignIn } = useUserAuth();
@@ -61,7 +63,16 @@ export default function LoginForm() {
             <Button colorScheme={'blue'} variant={'solid'}>
               Sign in
             </Button>
-            <GoogleButton onClick={handleGoogleSignIn} />
+            <Button
+              w={'full'}
+              variant={'outline'}
+              leftIcon={<FcGoogle />}
+              onClick={handleGoogleSignIn}
+            >
+              <Center>
+                <Text>Sign in with Google</Text>
+              </Center>
+            </Button>
           </Stack>
         </Stack>
       </Flex>
