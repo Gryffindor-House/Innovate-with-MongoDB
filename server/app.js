@@ -1,11 +1,13 @@
 const express = require("express");
+const { fetch_shipwreck } = require("./db");
 const app = express();
 
 const db_js = require("./db");
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   console.log("In get");
-  console.log(db_js.fetch_shipwreck());
+  let results = await fetch_shipwreck();
+  console.log(results);
 });
 
 const PORT = process.env.PORT || 5000;

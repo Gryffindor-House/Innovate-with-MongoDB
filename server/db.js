@@ -1,31 +1,29 @@
 const { uri } = require("./config");
 const { MongoClient } = require("mongodb");
 
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// Create a new MongoClient
+const client = new MongoClient(uri);
 
-// Shipwreck Collection
-const collection = client.db("sample_geospatial").collection("shipwrecks");
-
-function fetch_shipwreck() {
+async function fetch_shipwreck() {
   try {
-    // Make the appropriate DB calls
-    collection.find({}).toArray(function (err, result) {
-      if (err) {
-        return false;
-      }
-      console.log(result);
-      return result;
-    });
+    // Connect the client to the server
+    await client.connect();
+
+    //  Fetching Collection Data
+    let results = await client
+      .db("sample_geospatial")
+      .collection("shipwrecks")
+      .find({})
+      .toArray();
+
+    return results;
   } catch (e) {
-    console.error(e);
+    console.log(e);
+    return false;
   } finally {
     await client.close();
   }
 }
-
 module.exports = {
   fetch_shipwreck: fetch_shipwreck,
 };
