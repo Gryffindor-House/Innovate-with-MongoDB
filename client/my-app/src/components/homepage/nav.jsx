@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Box,
   Stack,
@@ -6,11 +6,11 @@ import {
   Flex,
   Text,
   Button,
-  useDisclosure
-} from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+  useDisclosure,
+} from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
 
-const Nav = (props) => {
+const Nav = props => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleToggle = () => (isOpen ? onClose() : onOpen());
 
@@ -26,19 +26,19 @@ const Nav = (props) => {
       {...props}
     >
       <Flex align="center" mr={5}>
-        <Heading as="h1" size="lg" letterSpacing={"tighter"}>
-          Ashwin Thomas
+        <Heading as="h1" size="lg" letterSpacing={'tighter'}>
+          Weather App
         </Heading>
       </Flex>
 
-      <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
+      <Box display={{ base: 'block', md: 'none' }} onClick={handleToggle}>
         <HamburgerIcon />
       </Box>
 
       <Stack
-        direction={{ base: "column", md: "row" }}
-        display={{ base: isOpen ? "block" : "none", md: "flex" }}
-        width={{ base: "full", md: "auto" }}
+        direction={{ base: 'column', md: 'row' }}
+        display={{ base: isOpen ? 'block' : 'none', md: 'flex' }}
+        width={{ base: 'full', md: 'auto' }}
         alignItems="center"
         flexGrow={1}
         mt={{ base: 4, md: 0 }}
@@ -49,10 +49,9 @@ const Nav = (props) => {
       </Stack>
 
       <Box
-        display={{ base: isOpen ? "block" : "none", md: "block" }}
+        display={{ base: isOpen ? 'block' : 'none', md: 'block' }}
         mt={{ base: 4, md: 0 }}
-      >
-      </Box>
+      ></Box>
     </Flex>
   );
 };
