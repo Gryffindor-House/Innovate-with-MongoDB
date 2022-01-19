@@ -21,9 +21,11 @@ import {
   FiStar,
   FiSettings,
   FiMenu,
+  FiLogOut,
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
+import { GiShipWreck } from "react-icons/gi";
 
 interface LinkItemProps {
   name: string;
@@ -31,10 +33,9 @@ interface LinkItemProps {
 }
 const LinkItems: Array<LinkItemProps> = [
   { name: 'Home', icon: FiHome },
-  { name: 'Trending', icon: FiTrendingUp },
-  { name: 'Explore', icon: FiCompass },
-  { name: 'Favourites', icon: FiStar },
-  { name: 'Settings', icon: FiSettings },
+  { name: 'Instructions', icon: FiCompass },
+  { name: 'Info', icon: FiStar },
+  { name: 'Logout', icon: FiLogOut },
 ];
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
@@ -83,9 +84,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
-        </Text>
+        {<Icon as={GiShipWreck} w={20} h={20} p={'2px;'} position={'absolute'} left={'65px;'}/>}
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map(link => (

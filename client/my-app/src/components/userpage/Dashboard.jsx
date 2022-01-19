@@ -10,7 +10,7 @@ export const Dashboard = () => {
     <>
       <Grid templateColumns="repeat(5, 1fr)" gap={1}>
         <Navbar />
-        <GridItem h="10" colStart={2} colEnd={3} p={'12px'}>
+        <GridItem h="10" colStart={2} colEnd={3} p={'55px'}>
           <Map />
         </GridItem>
         <GridItem colStart={3} colEnd={5} colSpan={2} h="10">
