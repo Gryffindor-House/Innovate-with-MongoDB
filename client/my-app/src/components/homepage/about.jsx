@@ -7,9 +7,10 @@ import {
   Heading,
   Text,
   Container,
+  color,
 } from '@chakra-ui/react';
 // Here we have used react-icons package for the icons
-import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
+import { BiLeftArrowAlt, BiMessageAltCheck, BiRightArrowAlt } from 'react-icons/bi';
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
 
@@ -39,23 +40,23 @@ function About() {
   // This list contains all the data for carousels
   // This can be static or loaded from a server
   const cards = [
+    { 
+      title: 'What are Shipwrecks?',
+      text: "A shipwreck is the wreckage of a ship that is located either beached on land or sunken to the bottom of a body of water. Shipwrecking may be intentional or unintentional.",
+      image:
+        'https://files.123freevectors.com/wp-content/original/202641-light-color-plain-background.jpg',
+      },
+    {
+      title: 'Why are we talking about Shipwrecks tho?',
+      text: "Shipwreck sites are treasure troves for the right people. We want to help them by mapping shipwreck locations around the world and whats even better is that even you can add wreck locations yourself to our database!",
+      image:
+        'https://files.123freevectors.com/wp-content/original/202641-light-color-plain-background.jpg',
+    },
     {
       title: 'About Us',
-      text: "We are Team Gryffindor and this is our project on shipwrecks.",
+      text: "We are Team Gryffindor.",
       image:
-        'https://images.unsplash.com/photo-1516796181074-bf453fbfa3e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
-    },
-    {
-      title: 'Contact Us',
-      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-      image:
-        'https://images.unsplash.com/photo-1438183972690-6d4658e3290e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2274&q=80',
-    },
-    {
-      title: 'Design Projects 3',
-      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-      image:
-        'https://images.unsplash.com/photo-1507237998874-b4d52d1dd655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+        'https://files.123freevectors.com/wp-content/original/202641-light-color-plain-background.jpg',
     },
   ];
 
