@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import {
+  Icon,
   Box,
   Flex,
   Avatar,
@@ -17,8 +18,9 @@ import {
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { GiShipWreck } from "react-icons/gi";
 
-// neeru in depression
+
 const Links = ['Dashboard', 'Projects', 'Team'];
 
 const NavLink = ({ children }: { children: ReactNode }) => (
@@ -51,7 +53,7 @@ export default function Simple() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box>Logo</Box>
+            <Box>{<Icon as={GiShipWreck} w={20} h={20} p={'8px;'} />}</Box>
             <HStack
               as={'nav'}
               spacing={4}
