@@ -5,7 +5,6 @@ const app = express();
 const db_js = require("./db");
 
 app.get("/", async (req, res) => {
-  console.log("In get");
   let results = await fetch_shipwreck();
   console.log(results);
 });

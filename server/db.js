@@ -4,6 +4,7 @@ const { MongoClient } = require("mongodb");
 // Create a new MongoClient
 const client = new MongoClient(uri);
 
+// Fetching shipwrecks data
 async function fetch_shipwreck() {
   try {
     // Connect the client to the server
@@ -24,6 +25,13 @@ async function fetch_shipwreck() {
     await client.close();
   }
 }
+
+// Update shipwreck data
+
+// Delete shipwreck data
+
+// Add shipwreck data
+
 module.exports = {
   fetch_shipwreck: fetch_shipwreck,
 };
