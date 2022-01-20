@@ -63,10 +63,11 @@ import {
                   borderColor={useColorModeValue('gray.100', 'gray.700')}
                 />
               }>
-              <Feature />
-                
-                text={'Business Planning'}
-              <Feature
+              <Feature 
+               text={'Business Planning'}
+              />
+                <Feature 
+               text={'Lol'}
               />
               <Feature
                 text={'Market Analysis'}
