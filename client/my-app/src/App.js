@@ -5,13 +5,16 @@ import { UserAuthContextProvider } from './context/UserAuthContext';
 import { Dashboard } from './components/userpage/Dashboard';
 import { ChakraProvider,useColorMode,useColorModeValue} from '@chakra-ui/react';
 import theme from './config/fonts/font';
-
+import LoginForm from './components/homepage/loginform';
+import Signupform from './components/homepage/Signupform';
 
 function App() {
   return (   
       <UserAuthContextProvider>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/signup" element={<Signupform />} />
           <Route
             path="/user"
             element={

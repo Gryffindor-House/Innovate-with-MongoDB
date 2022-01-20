@@ -21,27 +21,15 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { GiShipWreck } from 'react-icons/gi';
+import { useUserAuth } from '../../context/UserAuthContext';
+import { useNavigate } from 'react-router-dom';
 
-const Links = ['Dashboard', 'Projects', 'Team'];
 
-const NavLink = ({ children }: { children: ReactNode }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
-    }}
-    href={'#'}
-  >
-    {children}
-  </Link>
-);
 
 export default function Simple() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -61,44 +49,27 @@ export default function Simple() {
               spacing={8}
               display={{ base: 'none', md: 'flex' }}
             >
-              {Links.map(link => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
             </HStack>
           </HStack>
 
           <Flex alignItems={'center'}>
+            <Flex alignItems={'center'}>
+            <Button
+              variant={'solid'}
+              colorScheme={'green'}
+              size={'sm'}
+              mr={5}
+              onClick={()=>{navigate('/login')}}>
+              Sign In
+            </Button>
+            </Flex>
+
             <Button onClick={toggleColorMode} mr={5}>
               {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
             </Button>
-
-            <Menu>
-              <MenuButton
-                as={Button}
-                rounded={'full'}
-                variant={'link'}
-                cursor={'pointer'}
-                minW={0}
-              ></MenuButton>
-              <MenuList>
-                <MenuItem>Link 1</MenuItem>
-                <MenuItem>Link 2</MenuItem>
-                <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
-              </MenuList>
-            </Menu>
           </Flex>
         </Flex>
 
-        {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4}>
-              {Links.map(link => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
-            </Stack>
-          </Box>
-        ) : null}
       </Box>
     </>
   );

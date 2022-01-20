@@ -22,7 +22,7 @@ export default function Wreckinfo(): JSX.Element {
       justify={'center'}
       bg={useColorModeValue('gray.50', 'gray.800')}
       position={'absolute'}
-      left={'1075px'}
+      left={'1200px'}
     >
       <Stack
         spacing={4}

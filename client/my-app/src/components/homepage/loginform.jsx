@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
 import { server_URL } from '../../config/urls';
+import Footer from './footer';
 
 import {
   Button,
@@ -46,8 +47,19 @@ export default function LoginForm() {
   };
   const [showPassword, setShowPassword] = useState(false);
 
+
   return (
+    <div>
     <Stack minH={'90vh'} direction={{ base: 'column', md: 'row' }}>
+      <Flex flex={1}>
+        <Image
+          alt={'Login Image'}
+          objectFit={'cover'}
+          src={
+            'https://miro.medium.com/max/1080/0*G_W4PEC6F5eZePDU.jpg'
+          }
+        />
+      </Flex>
       <Flex p={8} flex={1} align={'center'} justify={'center'}>
         <Stack spacing={7} w={'full'} maxW={'md'}>
           <Heading fontSize="38px">Sign in to your account</Heading>
@@ -84,6 +96,12 @@ export default function LoginForm() {
               Sign in
             </Button>
             <Button
+              colorScheme={'pink'}
+              variant={'solid'}
+              onClick={()=>{navigate('/signup')}}>
+                Not a Member? Sign Up Now
+              </Button>
+            <Button
               w={'full'}
               variant={'outline'}
               leftIcon={<FcGoogle />}
@@ -96,15 +114,8 @@ export default function LoginForm() {
           </Stack>
         </Stack>
       </Flex>
-      <Flex flex={1}>
-        <Image
-          alt={'Login Image'}
-          objectFit={'cover'}
-          src={
-            'https://miro.medium.com/max/1080/0*G_W4PEC6F5eZePDU.jpg'
-          }
-        />
-      </Flex>
     </Stack>
+    <Footer />
+    </div>
   );
 }
