@@ -44,19 +44,19 @@ function About() {
       title: 'What are Shipwrecks?',
       text: "A shipwreck is the wreckage of a ship that is located either beached on land or sunken to the bottom of a body of water. Shipwrecking may be intentional or unintentional.",
       image:
-        'https://files.123freevectors.com/wp-content/original/202641-light-color-plain-background.jpg',
+        'https://ae01.alicdn.com/kf/HTB1siM9MrvpK1RjSZPiq6zmwXXaJ/Vinyl-Photography-Background-Light-Yellow-Flower-Illustration-Floral-Children-Fotografia-Backgrounds-for-Photo-Studio-G-177.jpg_Q90.jpg_.webp',
       },
     {
-      title: 'Why are we talking about Shipwrecks tho?',
+      title: 'Why are we talking about Shipwrecks?',
       text: "Shipwreck sites are treasure troves for the right people. We want to help them by mapping shipwreck locations around the world and whats even better is that even you can add wreck locations yourself to our database!",
       image:
-        'https://files.123freevectors.com/wp-content/original/202641-light-color-plain-background.jpg',
+        'https://ae01.alicdn.com/kf/HTB1siM9MrvpK1RjSZPiq6zmwXXaJ/Vinyl-Photography-Background-Light-Yellow-Flower-Illustration-Floral-Children-Fotografia-Backgrounds-for-Photo-Studio-G-177.jpg_Q90.jpg_.webp',
     },
     {
-      title: 'About Us',
-      text: "We are Team Gryffindor.",
+      title: 'Sign In today and lets dive right into it!',
+      text: "",
       image:
-        'https://files.123freevectors.com/wp-content/original/202641-light-color-plain-background.jpg',
+        'https://ae01.alicdn.com/kf/HTB1siM9MrvpK1RjSZPiq6zmwXXaJ/Vinyl-Photography-Background-Light-Yellow-Flower-Illustration-Floral-Children-Fotografia-Backgrounds-for-Photo-Studio-G-177.jpg_Q90.jpg_.webp',
     },
   ];
 
