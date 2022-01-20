@@ -29,6 +29,14 @@ async function fetch_shipwreck() {
 // Update shipwreck data
 
 // Delete shipwreck data
+let results = await client
+.db("sample_geospatial")
+.collection("shipwrecks")
+.deleteOne({ depth: {$gte : 10} }).then(function(){
+  console.log("Data Deleted");
+}).catch(function(error){
+  console.log(error);
+})
 
 // Add shipwreck data
 
