@@ -82,7 +82,7 @@ export default function Footer() {
         <Text>© 2020 Chakra Templates. All rights reserved</Text>
         <Stack direction={'row'} spacing={6}>
           <SocialButton label={'Github'} href={'#'}>
-            <FaGithub/>
+            <FaGithub />
           </SocialButton>
           <SocialButton label={'Linkedin'} href={'#'}>
             <FaLinkedin />
