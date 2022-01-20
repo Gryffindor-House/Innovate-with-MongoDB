@@ -29,17 +29,35 @@ async function fetch_shipwreck() {
 // Update shipwreck data
 
 // Delete shipwreck data
-let results = await client
-.db("sample_geospatial")
-.collection("shipwrecks")
-.deleteOne({ depth: {$gte : 10} }).then(function(){
-  console.log("Data Deleted");
-}).catch(function(error){
-  console.log(error);
-})
+async function delete_shipwreck() {
+  try {
+    // Connect the client to the server
+    await client.connect();
+
+    //  Fetching Collection Data
+    let results = await client
+      .db("sample_geospatial")
+      .collection("shipwrecks")
+      .deleteOne({ depth: { $gte: 10 } })
+      .then(function () {
+        console.log("Data Deleted");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    return results;
+  } catch (e) {
+    console.log(e);
+    return false;
+  } finally {
+    await client.close();
+  }
+}
 
 // Add shipwreck data
 
 module.exports = {
   fetch_shipwreck: fetch_shipwreck,
+  delete_shipwreck: delete_shipwreck,
 };
