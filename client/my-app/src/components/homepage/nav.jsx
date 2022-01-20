@@ -15,11 +15,12 @@ import {
   MenuDivider,
   useDisclosure,
   useColorModeValue,
+  useColorMode,
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { GiShipWreck } from "react-icons/gi";
-
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { GiShipWreck } from 'react-icons/gi';
 
 const Links = ['Dashboard', 'Projects', 'Team'];
 
@@ -39,6 +40,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 );
 
 export default function Simple() {
+  const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -56,7 +58,7 @@ export default function Simple() {
             <Box>{<Icon as={GiShipWreck} w={20} h={20} p={'8px;'} />}</Box>
             <HStack
               as={'nav'}
-              spacing={4}
+              spacing={8}
               display={{ base: 'none', md: 'flex' }}
             >
               {Links.map(link => (
@@ -64,7 +66,12 @@ export default function Simple() {
               ))}
             </HStack>
           </HStack>
+
           <Flex alignItems={'center'}>
+            <Button onClick={toggleColorMode} mr={5}>
+              {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+            </Button>
+
             <Menu>
               <MenuButton
                 as={Button}
