@@ -23,7 +23,7 @@ import {
   MenuItem,
   MenuList,
 } from '@chakra-ui/react';
-import { FiMenu, FiBell, FiChevronDown, FiLogOut } from 'react-icons/fi';
+import { FiMenu, FiChevronDown } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
 import {
@@ -34,6 +34,8 @@ import {
 } from 'react-icons/gi';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { auth } from '../../config/firebase';
+import { GoogleAuthProvider, signOut, getAuth } from 'firebase/auth';
 
 interface LinkItemProps {
   name: string;
@@ -160,6 +162,16 @@ interface MobileProps extends FlexProps {
 }
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
+  const logout = () => {
+    const provider = new GoogleAuthProvider();
+    signOut(auth)
+      .then(() => {
+        console.log('Sign out successfully');
+      })
+      .catch(error => {
+        console.log('sign out error' + { error });
+      });
+  };
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -227,7 +239,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
               bg={useColorModeValue('white', 'gray.900')}
               borderColor={useColorModeValue('gray.200', 'gray.700')}
             >
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem onClick={logout}>Sign out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>

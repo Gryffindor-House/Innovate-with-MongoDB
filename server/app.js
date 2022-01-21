@@ -25,12 +25,11 @@ app.get("/", async (req, res) => {
 
 app.post("/login", async (req, res) => {
   try {
-    console.log("Hello", req.body);
     let val = await authenticate_user(req.body);
-    console.log(val);
+    console.log("LOL", val);
     res.send(val);
   } catch (e) {
-    return false;
+    res.send(false);
   }
 });
 app.post("/signup", async (req, res) => {
