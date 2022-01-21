@@ -42,10 +42,10 @@ interface LinkItemProps {
   icon: IconType;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Wreck Map', icon: GiTreasureMap },
-  { name: 'Info about Site', icon: GiShipWheel },
-  { name: 'Wreck Info Form', icon: GiIronHulledWarship },
-  { name: 'FAQ', icon: FaQuestionCircle },
+  { name: 'Wreck Map', link:"https://www.google.com/", icon: GiTreasureMap },
+  { name: 'Info about Site', link:"https://www.youtube.com/", icon: GiShipWheel },
+  { name: 'Wreck Info Form', link:"https://en.wikipedia.org/wiki/Main_Page", icon: GiIronHulledWarship },
+  { name: 'FAQ', link:"https://www.facebook.com/", icon: FaQuestionCircle },
 ];
 
 export default function Navbar({ children }: { children: ReactNode }) {
@@ -109,7 +109,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map(link => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} icon={link.icon} link={link.link}>
           {link.name}
         </NavItem>
       ))}
@@ -124,7 +124,7 @@ interface NavItemProps extends FlexProps {
 const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
   return (
     <Link
-      href="https://www.google.com/"
+      href="#"
       style={{ textDecoration: 'none' }}
       _focus={{ boxShadow: 'none' }}
     >
