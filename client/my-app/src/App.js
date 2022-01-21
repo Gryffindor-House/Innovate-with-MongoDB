@@ -7,6 +7,7 @@ import { ChakraProvider,useColorMode,useColorModeValue} from '@chakra-ui/react';
 import theme from './config/fonts/font';
 import LoginForm from './components/homepage/loginform';
 import Signupform from './components/homepage/Signupform';
+import Fpass from './components/homepage/fpass';
 
 function App() {
   return (   
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<Signupform />} />
+          <Route path="/forgotpass" element={<Fpass />} />
           <Route
             path="/user"
             element={

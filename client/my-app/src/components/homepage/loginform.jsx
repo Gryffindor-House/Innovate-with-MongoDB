@@ -86,7 +86,7 @@ export default function LoginForm() {
               justify={'space-between'}
             >
               <Checkbox>Remember me</Checkbox>
-              <Link color={'blue.500'}>Forgot password?</Link>
+              <Link color={'blue.500'} onClick={()=>{navigate('/forgotpass')}}>Forgot password?</Link>
             </Stack>
             <Button
               colorScheme={'blue'}
