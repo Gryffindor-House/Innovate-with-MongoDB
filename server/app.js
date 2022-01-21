@@ -1,5 +1,5 @@
 const express = require("express");
-const { fetch_shipwreck, authenticate_user } = require("./db");
+const { fetch_shipwreck, authenticate_user, register_user } = require("./db");
 const app = express();
 var bodyParser = require("body-parser");
 var cors = require("cors");
@@ -29,6 +29,16 @@ app.post("/login", async (req, res) => {
     let val = await authenticate_user(req.body);
     console.log(val);
     res.send(val);
+  } catch (e) {
+    return false;
+  }
+});
+app.post("/signup", async (req, res) => {
+  try {
+    console.log("Hello", req.body);
+    // let val = await register_user(req.body);
+    // console.log(val);
+    res.send(false);
   } catch (e) {
     return false;
   }

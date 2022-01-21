@@ -45,9 +45,11 @@ export default function LoginForm() {
       console.log(error.message);
     }
   };
-  function handle_login() {
+  const handle_login = () => {
+    // Deleting prev entries
     params.delete('email_id');
     params.delete('password');
+    // Adding new entries
     params.append('email_id', login_form.email_id);
     params.append('password', login_form.password);
     axios.post(server_URL + 'login', params).then(res => {
@@ -58,7 +60,7 @@ export default function LoginForm() {
         navigate('/login');
       }
     });
-  }
+  };
   return (
     <div>
       {error ? (

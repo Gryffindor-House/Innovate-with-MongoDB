@@ -20,21 +20,10 @@ import {
   useColorMode,
   Menu,
   MenuButton,
-  MenuDivider,
   MenuItem,
   MenuList,
 } from '@chakra-ui/react';
-import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
-  FiMenu,
-  FiBell,
-  FiChevronDown,
-  FiLogOut,
-} from 'react-icons/fi';
+import { FiMenu, FiBell, FiChevronDown, FiLogOut } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
 import {
@@ -43,7 +32,7 @@ import {
   GiIronHulledWarship,
   GiTreasureMap,
 } from 'react-icons/gi';
-import { FaQuestionCircle } from "react-icons/fa";
+import { FaQuestionCircle } from 'react-icons/fa';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 interface LinkItemProps {
@@ -57,16 +46,8 @@ const LinkItems: Array<LinkItemProps> = [
   { name: 'FAQ', icon: FaQuestionCircle },
 ];
 
-export default function Navbar({
-  children,
-}: {
-  children: ReactNode,
-})
-
-{
+export default function Navbar({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
- 
 
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
@@ -209,9 +190,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       </Text>
 
       <HStack spacing={{ base: '0', md: '2' }}>
-      <Button onClick={toggleColorMode} mr={5}>
-              {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-            </Button>
+        <Button onClick={toggleColorMode} mr={5}>
+          {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+        </Button>
         <Flex alignItems={'center'}>
           <Menu>
             <MenuButton
