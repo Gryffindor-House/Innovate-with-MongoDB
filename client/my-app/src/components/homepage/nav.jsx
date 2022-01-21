@@ -26,7 +26,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-export default function Simple() {
+export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
