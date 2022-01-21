@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Box, Grid, GridItem, VStack } from '@chakra-ui/react';
+import { Button, Box, Grid, GridItem, VStack, grid } from '@chakra-ui/react';
 
 import Wreckinfo from './wreckinfo';
 import Navbar from './navbar';
