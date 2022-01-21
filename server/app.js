@@ -1,6 +1,7 @@
 const express = require("express");
-const { fetch_shipwreck } = require("./db");
+const { fetch_shipwreck, authenticate_user } = require("./db");
 const app = express();
+var bodyParser = require("body-parser");
 var cors = require("cors");
 
 app.use(
@@ -9,6 +10,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.all("/*", function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -21,8 +23,15 @@ app.get("/", async (req, res) => {
   console.log(results);
 });
 
-app.post("/login", (req, res) => {
-  console.log(req.body.params);
+app.post("/login", async (req, res) => {
+  try {
+    console.log("Hello", req.body);
+    let val = await authenticate_user(req.body);
+    console.log(val);
+    res.send(val);
+  } catch (e) {
+    return false;
+  }
 });
 
 const PORT = process.env.PORT || 5000;

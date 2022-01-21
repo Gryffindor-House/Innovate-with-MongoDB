@@ -25,8 +25,11 @@ import { useNavigate } from 'react-router-dom';
 export default function LoginForm() {
   const { googleSignIn } = useUserAuth();
   const navigate = useNavigate();
-  const [email, set_email] = useState('');
-  const [password, set_password] = useState('');
+  const [login_form, update_login_form] = useState({
+    email_id: '',
+    password: '',
+  });
+  const params = new URLSearchParams();
 
   const handleGoogleSignIn = async e => {
     e.preventDefault();
@@ -39,14 +42,19 @@ export default function LoginForm() {
     }
   };
 
-  const handle_login = async () => {
-    let params = { email: email, password: password };
-    axios.post(server_URL + 'login', params).then(result => {
-      console.log(result);
+  function handle_login() {
+    params.delete('email_id');
+    params.delete('password');
+    params.append('email_id', login_form.email_id);
+    params.append('password', login_form.password);
+    axios.post(server_URL + 'login', params).then(res => {
+      if (res.data) {
+        navigate('/user');
+      } else {
+        navigate('/login');
+      }
     });
-  };
-  const [showPassword, setShowPassword] = useState(false);
-
+  }
   return (
     <div>
       <Stack minH={'90vh'} direction={{ base: 'column', md: 'row' }}>
@@ -64,16 +72,23 @@ export default function LoginForm() {
               <FormLabel>Email address</FormLabel>
               <Input
                 type="email"
-                value={email}
-                onChange={e => set_email(e.target.value)}
+                value={login_form.email_id}
+                onChange={e =>
+                  update_login_form({ ...login_form, email_id: e.target.value })
+                }
               />
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
               <Input
                 type="password"
-                value={password}
-                onChange={e => set_password(e.target.value)}
+                value={login_form.password}
+                onChange={e =>
+                  update_login_form({
+                    ...login_form,
+                    password: e.target.value,
+                  })
+                }
               />
             </FormControl>
             <Stack spacing={6}>
