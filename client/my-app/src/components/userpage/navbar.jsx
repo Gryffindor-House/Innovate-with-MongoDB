@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import {
+  Button,
   IconButton,
   Avatar,
   Box,
@@ -16,6 +17,7 @@ import {
   useDisclosure,
   BoxProps,
   FlexProps,
+  useColorMode,
   Menu,
   MenuButton,
   MenuDivider,
@@ -41,6 +43,8 @@ import {
   GiIronHulledWarship,
   GiTreasureMap,
 } from 'react-icons/gi';
+import { FaQuestionCircle } from "react-icons/fa";
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 interface LinkItemProps {
   name: string;
@@ -50,15 +54,20 @@ const LinkItems: Array<LinkItemProps> = [
   { name: 'Wreck Map', icon: GiTreasureMap },
   { name: 'Info about Site', icon: GiShipWheel },
   { name: 'Wreck Info Form', icon: GiIronHulledWarship },
-  { name: 'Logout', icon: FiLogOut },
+  { name: 'FAQ', icon: FaQuestionCircle },
 ];
 
-export default function SidebarWithHeader({
+export default function Navbar({
   children,
 }: {
   children: ReactNode,
-}) {
+})
+
+{
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+ 
+
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
       <SidebarContent
@@ -169,6 +178,7 @@ interface MobileProps extends FlexProps {
   onOpen: () => void;
 }
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -198,13 +208,10 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         Logo
       </Text>
 
-      <HStack spacing={{ base: '0', md: '6' }}>
-        <IconButton
-          size="lg"
-          variant="ghost"
-          aria-label="open menu"
-          icon={<FiBell />}
-        />
+      <HStack spacing={{ base: '0', md: '2' }}>
+      <Button onClick={toggleColorMode} mr={5}>
+              {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+            </Button>
         <Flex alignItems={'center'}>
           <Menu>
             <MenuButton
@@ -216,7 +223,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                 <Avatar
                   size={'sm'}
                   src={
-                    'https://images.unsplash.com/photo-1619946794135-5bc917a27793?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
+                    'https://library.kissclipart.com/20180922/eve/kissclipart-icon-full-name-clipart-computer-icons-avatar-icon-f6cf26ff2213f36e.jpg'
                   }
                 />
                 <VStack
@@ -225,9 +232,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                   spacing="1px"
                   ml="2"
                 >
-                  <Text fontSize="sm">Justina Clark</Text>
+                  <Text fontSize="sm">Welcome,</Text>
                   <Text fontSize="xs" color="gray.600">
-                    Admin
+                    User
                   </Text>
                 </VStack>
                 <Box display={{ base: 'none', md: 'flex' }}>
