@@ -17,6 +17,7 @@ import {
   Image,
   Center,
   Text,
+  useToast,
 } from '@chakra-ui/react';
 
 import { useUserAuth } from '../../context/UserAuthContext';
@@ -29,6 +30,9 @@ export default function LoginForm() {
     email_id: '',
     password: '',
   });
+  const [error, seterror] = useState(false);
+  const toast = useToast();
+
   const params = new URLSearchParams();
 
   const handleGoogleSignIn = async e => {
@@ -41,22 +45,35 @@ export default function LoginForm() {
       console.log(error.message);
     }
   };
-
   function handle_login() {
     params.delete('email_id');
     params.delete('password');
     params.append('email_id', login_form.email_id);
     params.append('password', login_form.password);
     axios.post(server_URL + 'login', params).then(res => {
-      if (res.data) {
+      if (res.data === true) {
         navigate('/user');
       } else {
+        seterror(true);
         navigate('/login');
       }
     });
   }
   return (
     <div>
+      {error ? (
+        (toast({
+          title: 'Error',
+          description: 'Invalid Credentials',
+          status: 'error',
+          duration: 9000,
+          position: 'top',
+          isClosable: true,
+        }),
+        seterror(false))
+      ) : (
+        <div></div>
+      )}
       <Stack minH={'90vh'} direction={{ base: 'column', md: 'row' }}>
         <Flex flex={1}>
           <Image
