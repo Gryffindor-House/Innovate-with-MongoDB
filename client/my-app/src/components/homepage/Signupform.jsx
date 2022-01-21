@@ -65,6 +65,7 @@ import {
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
                 <InputGroup>
+                
                   <Input type={showPassword ? 'text' : 'password'} />
                   <InputRightElement h={'full'}>
                     <Button
