@@ -12,6 +12,7 @@ import theme from './config/fonts/font';
 import LoginForm from './components/homepage/loginform';
 import Signupform from './components/homepage/Signupform';
 import Fpass from './components/homepage/fpass';
+import Map from './components/userpage/map';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<Signupform />} />
         <Route path="/forgotpass" element={<Fpass />} />
+        <Route exact path="/gmap" element={<Map />} />
         <Route
           path="/user"
           element={
