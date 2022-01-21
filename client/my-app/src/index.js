@@ -12,7 +12,7 @@ import theme from './config/fonts/font';
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <ChakraProvider theme={theme} bg={'black'}>
+      <ChakraProvider theme={theme}>
         <App />
       </ChakraProvider>
     </Router>

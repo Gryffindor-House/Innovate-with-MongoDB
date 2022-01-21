@@ -47,75 +47,83 @@ export default function LoginForm() {
   };
   const [showPassword, setShowPassword] = useState(false);
 
-
   return (
     <div>
-    <Stack minH={'90vh'} direction={{ base: 'column', md: 'row' }}>
-      <Flex flex={1}>
-        <Image
-          alt={'Login Image'}
-          objectFit={'cover'}
-          src={
-            'https://miro.medium.com/max/1080/0*G_W4PEC6F5eZePDU.jpg'
-          }
-        />
-      </Flex>
-      <Flex p={8} flex={1} align={'center'} justify={'center'}>
-        <Stack spacing={7} w={'full'} maxW={'md'}>
-          <Heading fontSize="38px">Sign in to your account</Heading>
-          <FormControl id="email">
-            <FormLabel>Email address</FormLabel>
-            <Input
-              type="email"
-              value={email}
-              onChange={e => set_email(e.target.value)}
-            />
-          </FormControl>
-          <FormControl id="password">
-            <FormLabel>Password</FormLabel>
-            <Input
-              type="password"
-              value={password}
-              onChange={e => set_password(e.target.value)}
-            />
-          </FormControl>
-          <Stack spacing={6}>
-            <Stack
-              direction={{ base: 'column', sm: 'row' }}
-              align={'start'}
-              justify={'space-between'}
-            >
-              <Checkbox>Remember me</Checkbox>
-              <Link color={'blue.500'} onClick={()=>{navigate('/forgotpass')}}>Forgot password?</Link>
-            </Stack>
-            <Button
-              colorScheme={'blue'}
-              variant={'solid'}
-              onClick={handle_login}
-            >
-              Sign in
-            </Button>
-            <Button
-              colorScheme={'pink'}
-              variant={'solid'}
-              onClick={()=>{navigate('/signup')}}>
+      <Stack minH={'90vh'} direction={{ base: 'column', md: 'row' }}>
+        <Flex flex={1}>
+          <Image
+            alt={'Login Image'}
+            objectFit={'cover'}
+            src={'https://miro.medium.com/max/1080/0*G_W4PEC6F5eZePDU.jpg'}
+          />
+        </Flex>
+        <Flex p={8} flex={1} align={'center'} justify={'center'}>
+          <Stack spacing={7} w={'full'} maxW={'md'}>
+            <Heading fontSize="38px">Sign in to your account</Heading>
+            <FormControl id="email">
+              <FormLabel>Email address</FormLabel>
+              <Input
+                type="email"
+                value={email}
+                onChange={e => set_email(e.target.value)}
+              />
+            </FormControl>
+            <FormControl id="password">
+              <FormLabel>Password</FormLabel>
+              <Input
+                type="password"
+                value={password}
+                onChange={e => set_password(e.target.value)}
+              />
+            </FormControl>
+            <Stack spacing={6}>
+              <Stack
+                direction={{ base: 'column', sm: 'row' }}
+                align={'start'}
+                justify={'space-between'}
+              >
+                <Checkbox>Remember me</Checkbox>
+                <Link
+                  color={'blue.500'}
+                  onClick={() => {
+                    navigate('/forgotpass');
+                  }}
+                >
+                  Forgot password?
+                </Link>
+              </Stack>
+              <Button
+                colorScheme={'blue'}
+                variant={'solid'}
+                onClick={handle_login}
+              >
+                Sign in
+              </Button>
+              <Button
+                w={'full'}
+                variant={'outline'}
+                leftIcon={<FcGoogle />}
+                onClick={handleGoogleSignIn}
+              >
+                <Center>
+                  <Text>Sign in with Google</Text>
+                </Center>
+              </Button>
+
+              <Button
+                colorScheme={'pink'}
+                variant={'solid'}
+                onClick={() => {
+                  navigate('/signup');
+                }}
+              >
                 Not a Member? Sign Up Now
               </Button>
-            <Button
-              w={'full'}
-              variant={'outline'}
-              leftIcon={<FcGoogle />}
-              onClick={handleGoogleSignIn}
-            >
-              <Center>
-                <Text>Sign in with Google</Text>
-              </Center>
-            </Button>
+            </Stack>
           </Stack>
-        </Stack>
-      </Flex>
-    </Stack>
-    <Footer />
+        </Flex>
+      </Stack>
+      <Footer />
     </div>
   );
 }

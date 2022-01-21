@@ -31,11 +31,16 @@ import {
   FiMenu,
   FiBell,
   FiChevronDown,
-  FiLogOut
+  FiLogOut,
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
-import { GiShipWreck, GiShipWheel,GiIronHulledWarship, GiTreasureMap} from "react-icons/gi";
+import {
+  GiShipWreck,
+  GiShipWheel,
+  GiIronHulledWarship,
+  GiTreasureMap,
+} from 'react-icons/gi';
 
 interface LinkItemProps {
   name: string;
@@ -51,7 +56,7 @@ const LinkItems: Array<LinkItemProps> = [
 export default function SidebarWithHeader({
   children,
 }: {
-  children: ReactNode;
+  children: ReactNode,
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
@@ -67,7 +72,8 @@ export default function SidebarWithHeader({
         onClose={onClose}
         returnFocusOnClose={false}
         onOverlayClick={onClose}
-        size="full">
+        size="full"
+      >
         <DrawerContent>
           <SidebarContent onClose={onClose} />
         </DrawerContent>
@@ -95,12 +101,22 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       w={{ base: 'full', md: 60 }}
       pos="fixed"
       h="full"
-      {...rest}>
+      {...rest}
+    >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-          {<Icon as={GiShipWreck} w={20} h={20} p={'5px;'} position={'absolute'} left={'65px;'}/>}
+        {
+          <Icon
+            as={GiShipWreck}
+            w={20}
+            h={20}
+            p={'5px;'}
+            position={'absolute'}
+            left={'65px;'}
+          />
+        }
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
-      {LinkItems.map((link) => (
+      {LinkItems.map(link => (
         <NavItem key={link.name} icon={link.icon}>
           {link.name}
         </NavItem>
@@ -115,7 +131,11 @@ interface NavItemProps extends FlexProps {
 }
 const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
   return (
-    <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <Link
+      href="#"
+      style={{ textDecoration: 'none' }}
+      _focus={{ boxShadow: 'none' }}
+    >
       <Flex
         align="center"
         p="4"
@@ -127,7 +147,8 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
           bg: 'cyan.400',
           color: 'white',
         }}
-        {...rest}>
+        {...rest}
+      >
         {icon && (
           <Icon
             mr="4"
@@ -158,7 +179,8 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       borderBottomWidth="1px"
       borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
       justifyContent={{ base: 'space-between', md: 'flex-end' }}
-      {...rest}>
+      {...rest}
+    >
       <IconButton
         display={{ base: 'flex', md: 'none' }}
         onClick={onOpen}
@@ -171,7 +193,8 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         display={{ base: 'flex', md: 'none' }}
         fontSize="2xl"
         fontFamily="monospace"
-        fontWeight="bold">
+        fontWeight="bold"
+      >
         Logo
       </Text>
 
@@ -187,7 +210,8 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
             <MenuButton
               py={2}
               transition="all 0.3s"
-              _focus={{ boxShadow: 'none' }}>
+              _focus={{ boxShadow: 'none' }}
+            >
               <HStack>
                 <Avatar
                   size={'sm'}
@@ -199,7 +223,8 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                   display={{ base: 'none', md: 'flex' }}
                   alignItems="flex-start"
                   spacing="1px"
-                  ml="2">
+                  ml="2"
+                >
                   <Text fontSize="sm">Justina Clark</Text>
                   <Text fontSize="xs" color="gray.600">
                     Admin
@@ -212,11 +237,8 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
             </MenuButton>
             <MenuList
               bg={useColorModeValue('white', 'gray.900')}
-              borderColor={useColorModeValue('gray.200', 'gray.700')}>
-              <MenuItem>Profile</MenuItem>
-              <MenuItem>Settings</MenuItem>
-              <MenuItem>Billing</MenuItem>
-              <MenuDivider />
+              borderColor={useColorModeValue('gray.200', 'gray.700')}
+            >
               <MenuItem>Sign out</MenuItem>
             </MenuList>
           </Menu>

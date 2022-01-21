@@ -1,8 +1,7 @@
 import React from 'react';
 import Hero from './hero';
-import LoginForm from './loginform';
 import Nav from './nav';
-import About from './About';
+import About from './about';
 import Footer from './footer';
 
 export const Home = () => {
@@ -13,10 +12,9 @@ export const Home = () => {
         <Hero />
       </div>
       <div className="flex">
-    <About />
+        <About />
       </div>
       <Footer />
-
     </>
   );
 };
