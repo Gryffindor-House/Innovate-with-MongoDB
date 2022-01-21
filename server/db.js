@@ -54,6 +54,7 @@ async function fetch_shipwreck() {
 //   }
 // }
 
+// Authenticate user
 async function authenticate_user(params) {
   try {
     // Connect the client to the server
@@ -79,10 +80,33 @@ async function authenticate_user(params) {
   }
 }
 
+// Register User
+async function register_user(params) {
+  try {
+    // Connect the client to the server
+    await client.connect();
+
+    //  Fetching Collection Data
+    let results = await client
+      .db("sample_geospatial")
+      .collection("users")
+      .insertOne(params);
+
+    console.log(results);
+    // return results.length == 0 ? false : true;
+  } catch (e) {
+    console.log(e);
+    return false;
+  } finally {
+    await client.close();
+  }
+}
+
 // Add shipwreck data
 
 module.exports = {
   fetch_shipwreck: fetch_shipwreck,
   // delete_shipwreck: delete_shipwreck,
   authenticate_user: authenticate_user,
+  register_user: register_user,
 };

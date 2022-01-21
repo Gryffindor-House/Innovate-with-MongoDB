@@ -1,30 +1,18 @@
-import { ReactNode } from 'react';
 import {
   Icon,
   Box,
   Flex,
-  Avatar,
   HStack,
-  Link,
   IconButton,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useDisclosure,
   useColorModeValue,
   useColorMode,
-  Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { GiShipWreck } from 'react-icons/gi';
-import { useUserAuth } from '../../context/UserAuthContext';
 import { useNavigate } from 'react-router-dom';
-
-
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -48,20 +36,22 @@ export default function Nav() {
               as={'nav'}
               spacing={8}
               display={{ base: 'none', md: 'flex' }}
-            >
-            </HStack>
+            ></HStack>
           </HStack>
 
           <Flex alignItems={'center'}>
             <Flex alignItems={'center'}>
-            <Button
-              variant={'solid'}
-              colorScheme={'green'}
-              size={'sm'}
-              mr={5}
-              onClick={()=>{navigate('/login')}}>
-              Sign In
-            </Button>
+              <Button
+                variant={'solid'}
+                colorScheme={'green'}
+                size={'sm'}
+                mr={5}
+                onClick={() => {
+                  navigate('/login');
+                }}
+              >
+                Sign In
+              </Button>
             </Flex>
 
             <Button onClick={toggleColorMode} mr={5}>
@@ -69,7 +59,6 @@ export default function Nav() {
             </Button>
           </Flex>
         </Flex>
-
       </Box>
     </>
   );

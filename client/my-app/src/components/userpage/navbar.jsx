@@ -20,21 +20,10 @@ import {
   useColorMode,
   Menu,
   MenuButton,
-  MenuDivider,
   MenuItem,
   MenuList,
 } from '@chakra-ui/react';
-import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
-  FiMenu,
-  FiBell,
-  FiChevronDown,
-  FiLogOut,
-} from 'react-icons/fi';
+import { FiMenu, FiChevronDown } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
 import {
@@ -43,8 +32,10 @@ import {
   GiIronHulledWarship,
   GiTreasureMap,
 } from 'react-icons/gi';
-import { FaQuestionCircle } from "react-icons/fa";
+import { FaQuestionCircle } from 'react-icons/fa';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { auth } from '../../config/firebase';
+import { GoogleAuthProvider, signOut, getAuth } from 'firebase/auth';
 
 interface LinkItemProps {
   name: string;
@@ -57,16 +48,8 @@ const LinkItems: Array<LinkItemProps> = [
   { name: 'FAQ', icon: FaQuestionCircle },
 ];
 
-export default function Navbar({
-  children,
-}: {
-  children: ReactNode,
-})
-
-{
+export default function Navbar({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
- 
 
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
@@ -179,6 +162,16 @@ interface MobileProps extends FlexProps {
 }
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
+  const logout = () => {
+    const provider = new GoogleAuthProvider();
+    signOut(auth)
+      .then(() => {
+        console.log('Sign out successfully');
+      })
+      .catch(error => {
+        console.log('sign out error' + { error });
+      });
+  };
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -209,9 +202,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       </Text>
 
       <HStack spacing={{ base: '0', md: '2' }}>
-      <Button onClick={toggleColorMode} mr={5}>
-              {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-            </Button>
+        <Button onClick={toggleColorMode} mr={5}>
+          {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+        </Button>
         <Flex alignItems={'center'}>
           <Menu>
             <MenuButton
@@ -246,7 +239,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
               bg={useColorModeValue('white', 'gray.900')}
               borderColor={useColorModeValue('gray.200', 'gray.700')}
             >
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem onClick={logout}>Sign out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>
