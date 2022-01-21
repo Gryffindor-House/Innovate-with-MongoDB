@@ -52,6 +52,7 @@ export default function Signupform() {
     params.append('password', signupform.password);
     axios.post(server_URL + 'signup', params).then(res => {
       if (res.data === true) {
+        seterror(false);
         navigate('/login');
       } else {
         seterror(true);

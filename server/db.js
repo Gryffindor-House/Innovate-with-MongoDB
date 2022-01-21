@@ -86,14 +86,25 @@ async function register_user(params) {
     // Connect the client to the server
     await client.connect();
 
+    let id =
+      parseInt(
+        client
+          .db("sample_geospatial")
+          .collection("users")
+          .find()
+          .sort({ user_id: -1 })
+          .limit(1)
+      ) + 1;
+
+    params.user_id = id;
+
     //  Fetching Collection Data
     let results = await client
       .db("sample_geospatial")
       .collection("users")
       .insertOne(params);
 
-    console.log(results);
-    // return results.length == 0 ? false : true;
+    return results.acknowledged;
   } catch (e) {
     console.log(e);
     return false;

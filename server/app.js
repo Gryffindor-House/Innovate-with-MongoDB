@@ -34,10 +34,12 @@ app.post("/login", async (req, res) => {
 });
 app.post("/signup", async (req, res) => {
   try {
-    console.log("Hello", req.body);
-    // let val = await register_user(req.body);
-    // console.log(val);
-    res.send(false);
+    let params = {
+      name: req.body.first_name + " " + req.body.last_name,
+      email_id: req.body.email_id,
+      password: req.body.password,
+    };
+    res.send(await register_user(params));
   } catch (e) {
     return false;
   }
