@@ -124,7 +124,7 @@ interface NavItemProps extends FlexProps {
 const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
   return (
     <Link
-      href="#"
+      href="https://www.google.com/"
       style={{ textDecoration: 'none' }}
       _focus={{ boxShadow: 'none' }}
     >
