@@ -16,10 +16,12 @@ import {
   useColorModeValue,
   useColorMode,
   Stack,
-  Center
+  Center,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { useUserAuth } from '../../context/UserAuthContext';
+import { useNavigate } from 'react-router';
 
 const Links = ['Wreck Maps and Form', 'FAQs'];
 
@@ -32,7 +34,8 @@ const NavLink = ({ children }: { children: ReactNode }) => (
       textDecoration: 'none',
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
-    href={'#'}>
+    href={'#'}
+  >
     {children}
   </Link>
 );
@@ -40,6 +43,17 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+  const { logOut, user } = useUserAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      navigate('/');
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <>
@@ -57,27 +71,31 @@ export default function Simple() {
             <HStack
               as={'nav'}
               spacing={4}
-              display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
+              display={{ base: 'none', md: 'flex' }}
+            >
+              {Links.map(link => (
                 <NavLink key={link}>{link}</NavLink>
               ))}
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>
-          <Stack direction={'row'} spacing={7}>
+            <Stack direction={'row'} spacing={7}>
               <Button onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-                </Button>
-                <Menu>
+              </Button>
+              <Menu>
                 <MenuButton
                   as={Button}
                   rounded={'full'}
                   variant={'link'}
                   cursor={'pointer'}
-                  minW={0}>
+                  minW={0}
+                >
                   <Avatar
                     size={'sm'}
-                    src={'https://www.clipartmax.com/png/middle/347-3477367_480-user-icon-svg.png'}
+                    src={
+                      'https://www.clipartmax.com/png/middle/347-3477367_480-user-icon-svg.png'
+                    }
                   />
                 </MenuButton>
                 <MenuList alignItems={'center'}>
@@ -85,7 +103,9 @@ export default function Simple() {
                   <Center>
                     <Avatar
                       size={'2xl'}
-                      src={'https://www.clipartmax.com/png/middle/347-3477367_480-user-icon-svg.png'}
+                      src={
+                        'https://www.clipartmax.com/png/middle/347-3477367_480-user-icon-svg.png'
+                      }
                     />
                   </Center>
                   <br />
@@ -94,16 +114,13 @@ export default function Simple() {
                   </Center>
                   <br />
                   <MenuDivider />
-                  <MenuItem>Logout</MenuItem>
+                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </MenuList>
               </Menu>
             </Stack>
           </Flex>
         </Flex>
-
       </Box>
-
-
     </>
   );
 }
