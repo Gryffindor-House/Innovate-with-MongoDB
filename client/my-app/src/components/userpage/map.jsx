@@ -20,12 +20,12 @@ export class GoogleMap extends Component {
     super(props);
     this.state = {
       markers: [],
-      markers_status: [],
     };
   }
 
   componentDidMount() {
     axios.post(server_URL + 'fetch_shipwreck').then(results => {
+      console.log(results.data);
       this.setState({ markers: results.data });
     });
   }
@@ -43,18 +43,13 @@ export class GoogleMap extends Component {
       >
         {this.state.markers.map(marker => {
           return (
-            <>
-              <Marker
-                key={marker._id}
-                position={{
-                  lat: marker.latdec,
-                  lng: marker.londec,
-                }}
-                onClick={() => {
-                  console.log('clicked');
-                }}
-              />
-            </>
+            <Marker
+              key={marker._id}
+              position={{
+                lat: marker.latdec,
+                lng: marker.londec,
+              }}
+            />
           );
         })}
         <InfoWindow onClose={this.onInfoWindowClose}></InfoWindow>
