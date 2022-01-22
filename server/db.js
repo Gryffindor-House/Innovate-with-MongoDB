@@ -16,7 +16,6 @@ async function fetch_shipwreck() {
       .collection("shipwrecks")
       .find({})
       .toArray();
-    console.log(results);
     return results;
   } catch (e) {
     console.log(e);
@@ -114,10 +113,38 @@ async function register_user(params) {
 }
 
 // Add shipwreck data
+// Register User
+async function register_shipwreck(params) {
+  try {
+    // Connect the client to the server
+    await client.connect();
+
+    params["coordinates"] = Array(
+      parseFloat(params.londec),
+      parseFloat(params.latdec)
+    );
+
+    //  Fetching Collection Data
+    let results = await client
+      .db("sample_geospatial")
+      .collection("shipwrecks")
+      .insertOne(params);
+
+    console.log(results);
+
+    return results.acknowledged;
+  } catch (e) {
+    console.log(e);
+    return false;
+  } finally {
+    await client.close();
+  }
+}
 
 module.exports = {
   fetch_shipwreck: fetch_shipwreck,
   // delete_shipwreck: delete_shipwreck,
   authenticate_user: authenticate_user,
   register_user: register_user,
+  register_shipwreck: register_shipwreck,
 };

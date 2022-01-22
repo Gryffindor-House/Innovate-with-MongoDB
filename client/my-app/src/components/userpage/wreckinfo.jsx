@@ -7,21 +7,14 @@ import {
   Input,
   Stack,
   useColorModeValue,
-  Avatar,
-  AvatarBadge,
-  IconButton,
-  Center,
-  useToast
+  useToast,
 } from '@chakra-ui/react';
-import { SmallCloseIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { server_URL } from '../../config/urls';
 
 export default function Wreckinfo(): JSX.Element {
-
-  const [showPassword, setShowPassword] = useState(false);
   const [error, seterror] = useState(false);
   const navigate = useNavigate();
   const toast = useToast();
@@ -33,7 +26,6 @@ export default function Wreckinfo(): JSX.Element {
     feature_type: '',
     history: '',
     watlev: '',
-  
   });
 
   const params = new URLSearchParams();
@@ -49,21 +41,20 @@ export default function Wreckinfo(): JSX.Element {
 
   const handlewreck = () => {
     delete_details();
-    params.append('latdec', wreckform.latdec);
-    params.append('londec', wreckform.londec);
-    params.append('depth', wreckform.depth);
+    params.append('latdec', parseFloat(wreckform.latdec));
+    params.append('londec', parseFloat(wreckform.londec));
+    params.append('depth', parseInt(wreckform.depth));
     params.append('feature_type', wreckform.feature_type);
     params.append('history', wreckform.history);
     params.append('watlev', wreckform.watlev);
 
-    axios.post(server_URL + 'signup', params).then(res => {
+    axios.post(server_URL + 'register_shipwreck', params).then(res => {
       if (res.data === true) {
         seterror(false);
-        navigate('/login');
       } else {
         seterror(true);
-        navigate('/signup');
       }
+      navigate('/user');
     });
   };
 
@@ -76,6 +67,20 @@ export default function Wreckinfo(): JSX.Element {
       position={'absolute'}
       left={'1200px'}
     >
+      {error ? (
+        (toast({
+          title: 'Error',
+          description: 'Error in uploading shipwreck info',
+          status: 'error',
+          duration: 9000,
+          position: 'top',
+          isClosable: true,
+        }),
+        seterror(false))
+      ) : (
+        <div></div>
+      )}
+
       <Stack
         spacing={4}
         w={'full'}
@@ -111,6 +116,12 @@ export default function Wreckinfo(): JSX.Element {
             placeholder="ex: 3.276533"
             _placeholder={{ color: 'gray.500' }}
             type="text"
+            onChange={e =>
+              setwreckform({
+                ...wreckform,
+                latdec: e.target.value,
+              })
+            }
           />
         </FormControl>
         <FormControl id="Longitude" isRequired>
@@ -119,6 +130,12 @@ export default function Wreckinfo(): JSX.Element {
             placeholder="ex: -61.565292"
             _placeholder={{ color: 'gray.500' }}
             type="text"
+            onChange={e =>
+              setwreckform({
+                ...wreckform,
+                londec: e.target.value,
+              })
+            }
           />
         </FormControl>
         <FormControl id="Wreckage Type" isRequired>
@@ -127,14 +144,26 @@ export default function Wreckinfo(): JSX.Element {
             placeholder="ex: Broken/Visible"
             _placeholder={{ color: 'gray.500' }}
             type="text"
+            onChange={e =>
+              setwreckform({
+                ...wreckform,
+                feature_type: e.target.value,
+              })
+            }
           />
-         </FormControl>
-         <FormControl id="History" isRequired>
+        </FormControl>
+        <FormControl id="History" isRequired>
           <FormLabel>History:</FormLabel>
           <Input
             placeholder="Related History"
             _placeholder={{ color: 'gray.500' }}
             type="text"
+            onChange={e =>
+              setwreckform({
+                ...wreckform,
+                history: e.target.value,
+              })
+            }
           />
         </FormControl>
         <FormControl id="Depth" isRequired>
@@ -143,14 +172,26 @@ export default function Wreckinfo(): JSX.Element {
             placeholder="Depth of Wreck"
             _placeholder={{ color: 'gray.500' }}
             type="text"
+            onChange={e =>
+              setwreckform({
+                ...wreckform,
+                depth: e.target.value,
+              })
+            }
           />
         </FormControl>
-          <FormControl id="Water Level" isRequired>
+        <FormControl id="Water Level" isRequired>
           <FormLabel>Water Level:</FormLabel>
           <Input
             placeholder="Water Level around the area of wreck"
             _placeholder={{ color: 'gray.500' }}
             type="text"
+            onChange={e =>
+              setwreckform({
+                ...wreckform,
+                watlev: e.target.value,
+              })
+            }
           />
         </FormControl>
         <Stack spacing={6} direction={['column', 'row']}>
@@ -160,6 +201,16 @@ export default function Wreckinfo(): JSX.Element {
             w="full"
             _hover={{
               bg: 'red.500',
+            }}
+            onClick={() => {
+              setwreckform({
+                latdec: '',
+                londec: '',
+                depth: '',
+                feature_type: '',
+                history: '',
+                watlev: '',
+              });
             }}
           >
             Cancel
@@ -171,6 +222,7 @@ export default function Wreckinfo(): JSX.Element {
             _hover={{
               bg: 'blue.500',
             }}
+            onClick={handlewreck}
           >
             Submit
           </Button>
