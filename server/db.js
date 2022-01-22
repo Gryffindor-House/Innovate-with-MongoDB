@@ -16,7 +16,6 @@ async function fetch_shipwreck() {
       .collection("shipwrecks")
       .find({})
       .toArray();
-
     return results;
   } catch (e) {
     console.log(e);

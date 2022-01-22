@@ -14,14 +14,7 @@ import {
   BoxProps,
   FlexProps,
 } from '@chakra-ui/react';
-import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
-  FiMenu,
-} from 'react-icons/fi';
+import { FiMenu } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
 import {
@@ -32,17 +25,23 @@ import {
 } from 'react-icons/gi';
 import { FaQuestionCircle } from 'react-icons/fa';
 
-
-
 interface LinkItemProps {
   name: string;
   icon: IconType;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Wreck Map', link:"https://www.google.com/", icon: GiTreasureMap },
-  { name: 'Info about Site', link:"https://www.youtube.com/", icon: GiShipWheel },
-  { name: 'Wreck Info Form', link:"https://en.wikipedia.org/wiki/Main_Page", icon: GiIronHulledWarship },
-  { name: 'FAQ', link:"https://www.facebook.com/", icon: FaQuestionCircle },
+  { name: 'Wreck Map', link: 'https://www.google.com/', icon: GiTreasureMap },
+  {
+    name: 'Info about Site',
+    link: 'https://www.youtube.com/',
+    icon: GiShipWheel,
+  },
+  {
+    name: 'Wreck Info Form',
+    link: 'https://en.wikipedia.org/wiki/Main_Page',
+    icon: GiIronHulledWarship,
+  },
+  { name: 'FAQ', link: 'https://www.facebook.com/', icon: FaQuestionCircle },
 ];
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
@@ -60,7 +59,8 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
         onClose={onClose}
         returnFocusOnClose={false}
         onOverlayClick={onClose}
-        size="full">
+        size="full"
+      >
         <DrawerContent>
           <SidebarContent onClose={onClose} />
         </DrawerContent>
@@ -87,19 +87,20 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       w={{ base: 'full', md: 60 }}
       pos="fixed"
       h="full"
-      {...rest}>
+      {...rest}
+    >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-      <Icon
-            as={GiShipWreck}
-            w={20}
-            h={20}
-            p={'5px;'}
-            position={'absolute'}
-            left={'65px;'}
-          />
+        <Icon
+          as={GiShipWreck}
+          w={20}
+          h={20}
+          p={'5px;'}
+          position={'absolute'}
+          left={'65px;'}
+        />
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
-      {LinkItems.map((link) => (
+      {LinkItems.map(link => (
         <NavItem key={link.name} icon={link.icon}>
           {link.name}
         </NavItem>
@@ -114,7 +115,11 @@ interface NavItemProps extends FlexProps {
 }
 const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
   return (
-    <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <Link
+      href="#"
+      style={{ textDecoration: 'none' }}
+      _focus={{ boxShadow: 'none' }}
+    >
       <Flex
         align="center"
         p="4"
@@ -126,7 +131,8 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
           bg: 'cyan.400',
           color: 'white',
         }}
-        {...rest}>
+        {...rest}
+      >
         {icon && (
           <Icon
             mr="4"
@@ -157,7 +163,8 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       borderBottomWidth="1px"
       borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
       justifyContent="flex-start"
-      {...rest}>
+      {...rest}
+    >
       <IconButton
         variant="outline"
         onClick={onOpen}

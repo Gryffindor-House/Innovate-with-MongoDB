@@ -18,9 +18,10 @@ app.all("/*", function (req, res, next) {
   next();
 });
 
-app.get("/", async (req, res) => {
+app.post("/fetch_shipwreck", async (req, res) => {
   let results = await fetch_shipwreck();
-  console.log(results);
+  // console.log(results);
+  res.send(results);
 });
 
 app.post("/login", async (req, res) => {

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import { API_KEY } from '../../config/googlemaps';
+import { server_URL } from '../../config/urls';
+import axios from 'axios';
 
 const style = {
   maxWidth: '1000px',
@@ -12,7 +14,21 @@ const containerStyle = {
   maxWidth: '1000px',
   height: '600px',
 };
+
 export class GoogleMap extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      markers: [],
+      markers_status: [],
+    };
+  }
+
+  componentDidMount() {
+    axios.post(server_URL + 'fetch_shipwreck').then(results => {
+      this.setState({ markers: results.data });
+    });
+  }
   render() {
     return (
       <Map
@@ -25,12 +41,22 @@ export class GoogleMap extends Component {
           lng: '80.25544339744059',
         }}
       >
-        <Marker
-          position={{
-            lat: '13.045812998652254',
-            lng: '80.25544339744059',
-          }}
-        />
+        {this.state.markers.map(marker => {
+          return (
+            <>
+              <Marker
+                key={marker._id}
+                position={{
+                  lat: marker.latdec,
+                  lng: marker.londec,
+                }}
+                onClick={() => {
+                  console.log('clicked');
+                }}
+              />
+            </>
+          );
+        })}
         <InfoWindow onClose={this.onInfoWindowClose}></InfoWindow>
       </Map>
     );
