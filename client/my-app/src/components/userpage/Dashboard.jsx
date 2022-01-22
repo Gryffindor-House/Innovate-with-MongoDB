@@ -5,12 +5,13 @@ import Wreckinfo from './wreckinfo';
 import Navbar from './navbar';
 import GoogleMap from './map';
 import FAQs from './FAQ';
+import Footer from './footer';
 
 export const Dashboard = () => {
   return (
     <>
     <Navbar />
-      <Grid>
+     <Grid>
       <GridItem colStart={1} colEnd={2} p={"40px"}>
           <GoogleMap />
         </GridItem>

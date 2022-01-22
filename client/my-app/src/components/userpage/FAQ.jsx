@@ -12,14 +12,14 @@ import {
 import { CheckIcon } from '@chakra-ui/icons';
 
 // Replace test data with your own
-const features = [{id: 1, title:"How to use" , text:"hi"},
-{id: 2, title:"what do we do" , text:"wassup"},
-{id: 3, title:"maps" , text:"Facebook"},
-{id: 4, title:"AShwin" , text:"Twitter"},
-{id: 5, title:"AShwin" , text:"Twitter"},
-{id: 6, title:"AShwin" , text:"Twitter"},
-{id: 7, title:"AShwin" , text:"Twitter"},
-{id: 8, title:"AShwin" , text:"Twitter"}
+const features = [{id: 1, title:"Who are we?" , text:"We are Team Gryffindor, a group of students based out of Chennai"},
+{id: 2, title:"What is our purpose?" , text:"This is a place for all those who love to spot shipwrecks and want to add some of their own!"},
+{id: 3, title:"What are shipwrecks actually?" , text:"Well, A shipwreck is the wreckage of a ship that is located either beached on land or sunken to the bottom of a body of water. Shipwrecking may be intentional or unintentional."},
+{id: 4, title:"So what regions do you cover?" , text:"For now we cover the shipwrecks in the Asia-Pacific region with ideas of expanding throughout the globe :)"},
+{id: 5, title:"How do I add my own shipwreck data?" , text:"After logging in to the Dashboard, you can fill up our wreck in form and add to our database."},
+{id: 6, title:"Does my data get added instantly?" , text:"Once we verify the authencity of your information, it will be published onto our database."},
+{id: 7, title:"What do I do if my data has been wrongly inputted?" , text:"Reach out to us via any of our handles"},
+{id: 8, title:"Customer Service" , text:"For any more queries, click on the chat icon below to talk directly to our representative."}
 ]
 export default function FAQs() {
   return (
