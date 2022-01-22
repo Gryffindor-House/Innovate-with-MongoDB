@@ -11,11 +11,7 @@ import {
   createIcon,
 } from '@chakra-ui/react';
 
-import { useUserAuth } from '../../context/UserAuthContext';
-import { useNavigate } from 'react-router-dom';
-
 export default function Hero() {
-  const navigate = useNavigate();
   return (
     <>
       <Head>
@@ -30,25 +26,30 @@ export default function Hero() {
           as={Box}
           textAlign={'center'}
           spacing={{ base: 8, md: 14 }}
-          py={{ base: 20, md: 36 }}>
+          py={{ base: 20, md: 36 }}
+        >
           <Heading
             fontWeight={600}
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
-            lineHeight={'110%'}>
+            lineHeight={'110%'}
+          >
             Hey There, <br />
             <Text as={'span'} color={'green.400'}>
               Welcome Aboard!
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-           No, this is not your normal website. We are here for a very unique purpose so lets dive right in. Click on the button below to learn more. 
+            No, this is not your normal website. We are here for a very unique
+            purpose so lets dive right in. Click on the button below to learn
+            more.
           </Text>
           <Stack
             direction={'column'}
             spacing={3}
             align={'center'}
             alignSelf={'center'}
-            position={'relative'}>
+            position={'relative'}
+          >
             <Button
               colorScheme={'green'}
               bg={'green.400'}
@@ -57,8 +58,10 @@ export default function Hero() {
               _hover={{
                 bg: 'green.500',
               }}
-              
-              >
+              onClick={() => {
+                window.scrollTo({ top: 920, left: 0, behavior: 'smooth' });
+              }}
+            >
               Learn more
             </Button>
             <Box>
@@ -76,8 +79,9 @@ export default function Hero() {
                 position={'absolute'}
                 right={'-125px'}
                 top={'-15px'}
-                transform={'rotate(10deg)'}>
-                Head over here 
+                transform={'rotate(10deg)'}
+              >
+                Head over here
               </Text>
             </Box>
           </Stack>
