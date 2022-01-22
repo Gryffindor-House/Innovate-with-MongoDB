@@ -92,7 +92,7 @@ export default function Wreckinfo(): JSX.Element {
         my={12}
       >
         <Heading lineHeight={1.1} fontSize={{ base: '2xl', sm: '3xl' }}>
-          Shipwreck Info
+          Wreck Info Form
         </Heading>
         <FormControl id="Name" isRequired>
           <FormLabel>Name:</FormLabel>
@@ -183,7 +183,7 @@ export default function Wreckinfo(): JSX.Element {
         <FormControl id="Water Level" isRequired>
           <FormLabel>Water Level:</FormLabel>
           <Input
-            placeholder="Water Level around the area of wreck"
+            placeholder="Water Level near wreck"
             _placeholder={{ color: 'gray.500' }}
             type="text"
             onChange={e =>
