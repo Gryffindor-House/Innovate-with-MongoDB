@@ -11,10 +11,62 @@ import {
   AvatarBadge,
   IconButton,
   Center,
+  useToast
 } from '@chakra-ui/react';
 import { SmallCloseIcon } from '@chakra-ui/icons';
+import { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { server_URL } from '../../config/urls';
 
 export default function Wreckinfo(): JSX.Element {
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, seterror] = useState(false);
+  const navigate = useNavigate();
+  const toast = useToast();
+
+  const [wreckform, setwreckform] = useState({
+    latdec: '',
+    londec: '',
+    depth: '',
+    feature_type: '',
+    history: '',
+    watlev: '',
+  
+  });
+
+  const params = new URLSearchParams();
+
+  const delete_details = () => {
+    params.delete('latdec');
+    params.delete('londec');
+    params.delete('depth');
+    params.delete('feature_type');
+    params.delete('history');
+    params.delete('watlev');
+  };
+
+  const handlewreck = () => {
+    delete_details();
+    params.append('latdec', wreckform.latdec);
+    params.append('londec', wreckform.londec);
+    params.append('depth', wreckform.depth);
+    params.append('feature_type', wreckform.feature_type);
+    params.append('history', wreckform.history);
+    params.append('watlev', wreckform.watlev);
+
+    axios.post(server_URL + 'signup', params).then(res => {
+      if (res.data === true) {
+        seterror(false);
+        navigate('/login');
+      } else {
+        seterror(true);
+        navigate('/signup');
+      }
+    });
+  };
+
   return (
     <Flex
       minH={'100vh'}
@@ -69,7 +121,7 @@ export default function Wreckinfo(): JSX.Element {
             type="text"
           />
         </FormControl>
-        <FormControl id="Status of Wreck" isRequired>
+        <FormControl id="Wreckage Type" isRequired>
           <FormLabel>Wreckage Type:</FormLabel>
           <Input
             placeholder="ex: Broken/Visible"
