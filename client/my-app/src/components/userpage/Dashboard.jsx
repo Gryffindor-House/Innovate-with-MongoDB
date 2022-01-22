@@ -23,7 +23,6 @@ export const Dashboard = () => {
           <Wreckinfo />
         </GridItem>
       </Grid>
-
       <Navbar />
       <Infobox />
     </>

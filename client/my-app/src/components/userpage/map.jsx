@@ -20,8 +20,17 @@ export class GoogleMap extends Component {
         zoom={14}
         style={style}
         containerStyle={containerStyle}
+        initialCenter={{
+          lat: '13.045812998652254',
+          lng: '80.25544339744059',
+        }}
       >
-        <Marker onClick={this.onMarkerClick} name={'Current location'} />
+        <Marker
+          position={{
+            lat: '13.045812998652254',
+            lng: '80.25544339744059',
+          }}
+        />
         <InfoWindow onClose={this.onInfoWindowClose}></InfoWindow>
       </Map>
     );
