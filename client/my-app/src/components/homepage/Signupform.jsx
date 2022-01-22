@@ -35,7 +35,6 @@ export default function Signupform() {
   });
 
   const params = new URLSearchParams();
-  const isError = signupform.email_id === '';
 
   const delete_details = () => {
     params.delete('first_name');
