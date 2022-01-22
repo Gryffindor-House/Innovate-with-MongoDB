@@ -21,7 +21,7 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
-const Links = ['Wreck Maps', 'Wreck Info Form', 'FAQs'];
+const Links = ['Wreck Maps and Form', 'FAQs'];
 
 const NavLink = ({ children }: { children: ReactNode }) => (
   <Link

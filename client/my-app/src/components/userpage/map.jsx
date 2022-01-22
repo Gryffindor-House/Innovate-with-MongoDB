@@ -5,14 +5,14 @@ import { server_URL } from '../../config/urls';
 import axios from 'axios';
 
 const style = {
-  maxWidth: '1000px',
-  height: '600px',
+  maxWidth: '1100px',
+  height: '625px',
   overflowX: 'hidden',
   overflowY: 'hidden',
 };
 const containerStyle = {
-  maxWidth: '1000px',
-  height: '600px',
+  maxWidth: '1100px',
+  height: '625px',
 };
 
 export class GoogleMap extends Component {

@@ -45,14 +45,6 @@ export default function Wreckinfo(): JSX.Element {
             type="text"
           />
         </FormControl>
-        <FormControl id="email" isRequired>
-          <FormLabel>Verification Email ID:</FormLabel>
-          <Input
-            placeholder="john123@example.com"
-            _placeholder={{ color: 'gray.500' }}
-            type="email"
-          />
-        </FormControl>
         <FormControl id="Location" isRequired>
           <FormLabel>Location:</FormLabel>
           <Input
@@ -78,9 +70,33 @@ export default function Wreckinfo(): JSX.Element {
           />
         </FormControl>
         <FormControl id="Status of Wreck" isRequired>
-          <FormLabel>Status of Wreckage:</FormLabel>
+          <FormLabel>Wreckage Type:</FormLabel>
           <Input
             placeholder="ex: Broken/Visible"
+            _placeholder={{ color: 'gray.500' }}
+            type="text"
+          />
+         </FormControl>
+         <FormControl id="History" isRequired>
+          <FormLabel>History:</FormLabel>
+          <Input
+            placeholder="Related History"
+            _placeholder={{ color: 'gray.500' }}
+            type="text"
+          />
+        </FormControl>
+        <FormControl id="Depth" isRequired>
+          <FormLabel>Depth:</FormLabel>
+          <Input
+            placeholder="Depth of Wreck"
+            _placeholder={{ color: 'gray.500' }}
+            type="text"
+          />
+        </FormControl>
+          <FormControl id="Water Level" isRequired>
+          <FormLabel>Water Level:</FormLabel>
+          <Input
+            placeholder="Water Level around the area of wreck"
             _placeholder={{ color: 'gray.500' }}
             type="text"
           />
