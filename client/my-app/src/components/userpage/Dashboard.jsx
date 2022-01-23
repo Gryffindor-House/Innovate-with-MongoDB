@@ -4,7 +4,6 @@ import { Grid, GridItem, Flex } from '@chakra-ui/react';
 import Wreckinfo from './wreckinfo';
 import Navbar from './navbar';
 import GoogleMap from './map';
-import FAQs from './FAQ';
 import Footer from './footer';
 
 export const Dashboard = () => {

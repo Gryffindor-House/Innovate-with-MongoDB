@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Box,
   Flex,
@@ -16,33 +17,21 @@ import {
   useColorMode,
   Stack,
   Center,
-  Fade,
-} from '@chakra-ui/react';
-import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
   ModalFooter,
-  ModalBody,
-  ModalCloseButton,
 } from '@chakra-ui/react';
-import React, { useState } from 'react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { useUserAuth } from '../../context/UserAuthContext';
 import { useNavigate } from 'react-router';
 import FAQs from './FAQ';
-import Wreckinfo from './wreckinfo';
-import { FaQq } from 'react-icons/fa';
 
 const Links = ['FAQs'];
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
-  const [display, setdisplay] = useState(false);
-  const [displayid, setdisplayid] = useState(false);
   const { logOut, user } = useUserAuth();
   const navigate = useNavigate();
 
