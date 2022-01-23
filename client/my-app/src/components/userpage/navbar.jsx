@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import {
   Box,
   Flex,
@@ -17,36 +16,24 @@ import {
   useColorMode,
   Stack,
   Center,
+  Fade,
 } from '@chakra-ui/react';
+import React, { useState } from 'react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { useUserAuth } from '../../context/UserAuthContext';
 import { useNavigate } from 'react-router';
 import FAQs from './FAQ';
 import Wreckinfo from './wreckinfo';
-
-const comp={"FAQs":<FAQs/>,"Wreck Maps and Form":<div></div>}
+import { FaQq } from 'react-icons/fa';
 
 const Links = ['Wreck Maps and Form', 'FAQs'];
-
-const NavLink = ({ children }: { children: ReactNode }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
-    }}
-    href={'#'}
-  >
-    {children}
-  </Link>
-);
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+  const [display, setdisplay] = useState(false);
+  const [displayid, setdisplayid] = useState(false);
   const { logOut, user } = useUserAuth();
   const navigate = useNavigate();
 
@@ -77,10 +64,42 @@ export default function Simple() {
               spacing={4}
               display={{ base: 'none', md: 'flex' }}
             >
-              {Links.map(link => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+              {Links.map(link => {
+                return (
+                  <div>
+                    {' '}
+                    <Link
+                      px={2}
+                      py={1}
+                      rounded={'md'}
+                      _hover={{
+                        textDecoration: 'none',
+                      }}
+                      href={'#'}
+                      onClick={() => {
+                        link == 'FAQs'
+                          ? setdisplayid(!displayid)
+                          : setdisplayid(false);
+                      }}
+                    >
+                      {link}
+                    </Link>
+                  </div>
+                );
+              })}
             </HStack>
+            <Fade in={displayid}>
+              <Box
+                p="40px"
+                color="white"
+                mt="4"
+                bg="teal.500"
+                rounded="md"
+                shadow="md"
+              >
+                <FAQs />
+              </Box>
+            </Fade>
           </HStack>
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
