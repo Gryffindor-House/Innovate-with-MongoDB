@@ -85,7 +85,7 @@ export default function Signupform() {
           <Heading fontSize={'4xl'} textAlign={'center'}>
             Sign up
           </Heading>
-          <Text fontSize={'lg'} color={'gray.600'}>
+          <Text fontSize={'lg'} color={'gray.1000'}>
             to enjoy all of our cool features ✌️
           </Text>
         </Stack>
