@@ -81,7 +81,7 @@ export default function LoginForm() {
           <Image
             alt={'Login Image'}
             objectFit={'cover'}
-            src={'https://miro.medium.com/max/1080/0*G_W4PEC6F5eZePDU.jpg'}
+            src={'https://c4.wallpaperflare.com/wallpaper/275/684/26/environment-underwater-ship-fish-shipwreck-hd-wallpaper-preview.jpg'}
           />
         </Flex>
         <Flex p={8} flex={1} align={'center'} justify={'center'}>
@@ -145,7 +145,7 @@ export default function LoginForm() {
               </Button>
 
               <Button
-                colorScheme={'pink'}
+                colorScheme={'green'}
                 variant={'solid'}
                 onClick={() => {
                   navigate('/signup');

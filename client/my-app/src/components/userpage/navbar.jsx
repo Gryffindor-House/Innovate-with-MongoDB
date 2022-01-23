@@ -22,6 +22,10 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { useUserAuth } from '../../context/UserAuthContext';
 import { useNavigate } from 'react-router';
+import FAQs from './FAQ';
+import Wreckinfo from './wreckinfo';
+
+const comp={"FAQs":<FAQs/>,"Wreck Maps and Form":<div></div>}
 
 const Links = ['Wreck Maps and Form', 'FAQs'];
 

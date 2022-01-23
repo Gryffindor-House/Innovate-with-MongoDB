@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { CheckIcon } from '@chakra-ui/icons';
 
-// Replace test data with your own
+
 const features = [{id: 1, title:"Who are we?" , text:"We are Team Gryffindor, a group of students based out of Chennai"},
 {id: 2, title:"What is our purpose?" , text:"This is a place for all those who love to spot shipwrecks and want to add some of their own!"},
 {id: 3, title:"What are shipwrecks actually?" , text:"Well, A shipwreck is the wreckage of a ship that is located either beached on land or sunken to the bottom of a body of water. Shipwrecking may be intentional or unintentional."},
