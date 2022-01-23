@@ -127,7 +127,7 @@ export default function Simple() {
                   </Center>
                   <br />
                   <Center>
-                    <p>Hello, User </p>
+                    <p>Hello, {user.email} </p>
                   </Center>
                   <br />
                   <MenuDivider />
