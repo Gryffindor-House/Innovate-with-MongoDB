@@ -36,7 +36,7 @@ import FAQs from './FAQ';
 import Wreckinfo from './wreckinfo';
 import { FaQq } from 'react-icons/fa';
 
-const Links = ['Wreck Maps and Form', 'FAQs'];
+const Links = ['FAQs'];
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -93,7 +93,7 @@ export default function Simple() {
                 );
               })}
             </HStack>
-            <Modal isOpen={isOpen} onClose={onClose}>
+            <Modal isOpen={isOpen} onClose={onClose} size={'xml'}>
               <ModalOverlay />
               <ModalContent>
                 <FAQs />

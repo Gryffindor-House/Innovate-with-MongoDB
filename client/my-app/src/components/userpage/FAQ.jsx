@@ -26,7 +26,7 @@ export default function FAQs() {
     <Box p={4}>
       <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
         <Heading fontSize={'3xl'}>FAQs</Heading>
-        <Text color={'gray.600'} fontSize={'xl'}>
+        <Text color={'gray.1000'} fontSize={'xl'}>
           These are some common queries that might arise while using our website.
         </Text>
       </Stack>
@@ -39,8 +39,8 @@ export default function FAQs() {
                 <Icon as={CheckIcon} />
               </Box>
               <VStack align={'start'}>
-                <Text fontWeight={600}>{feature.title}</Text>
-                <Text color={'gray.600'}>{feature.text}</Text>
+                <Text fontWeight={1000}>{feature.title}</Text>
+                <Text color={'gray.1000'}>{feature.text}</Text>
               </VStack>
             </HStack>
           ))}
