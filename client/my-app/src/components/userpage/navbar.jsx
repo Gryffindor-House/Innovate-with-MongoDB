@@ -18,6 +18,15 @@ import {
   Center,
   Fade,
 } from '@chakra-ui/react';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
@@ -76,11 +85,7 @@ export default function Simple() {
                         textDecoration: 'none',
                       }}
                       href={'#'}
-                      onClick={() => {
-                        link == 'FAQs'
-                          ? setdisplayid(!displayid)
-                          : setdisplayid(false);
-                      }}
+                      onClick={link == 'FAQs' ? onOpen : onClose}
                     >
                       {link}
                     </Link>
@@ -88,18 +93,18 @@ export default function Simple() {
                 );
               })}
             </HStack>
-            <Fade in={displayid}>
-              <Box
-                p="40px"
-                color="white"
-                mt="4"
-                bg="teal.500"
-                rounded="md"
-                shadow="md"
-              >
+            <Modal isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent>
                 <FAQs />
-              </Box>
-            </Fade>
+
+                <ModalFooter>
+                  <Button colorScheme="blue" mr={3} onClick={onClose}>
+                    Close
+                  </Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
           </HStack>
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
