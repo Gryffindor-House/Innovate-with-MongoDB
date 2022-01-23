@@ -10,6 +10,11 @@ const config = {
 };
 
 // 3. extend the theme
-const theme = extendTheme({ config });
+const theme = extendTheme({ config,
+  fonts: {
+    heading: 'sans-serif',
+    body: 'Arial',
+  }
+});
 
 export default theme;

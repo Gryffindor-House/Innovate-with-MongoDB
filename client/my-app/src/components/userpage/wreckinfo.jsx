@@ -195,6 +195,17 @@ export default function Wreckinfo(): JSX.Element {
           />
         </FormControl>
         <Stack spacing={6} direction={['column', 'row']}>
+        <Button
+            bg={'blue.400'}
+            color={'white'}
+            w="full"
+            _hover={{
+              bg: 'blue.500',
+            }}
+            onClick={handlewreck}
+          >
+            Submit
+          </Button>
           <Button
             bg={'red.400'}
             color={'white'}
@@ -214,17 +225,6 @@ export default function Wreckinfo(): JSX.Element {
             }}
           >
             Cancel
-          </Button>
-          <Button
-            bg={'blue.400'}
-            color={'white'}
-            w="full"
-            _hover={{
-              bg: 'blue.500',
-            }}
-            onClick={handlewreck}
-          >
-            Submit
           </Button>
         </Stack>
       </Stack>
