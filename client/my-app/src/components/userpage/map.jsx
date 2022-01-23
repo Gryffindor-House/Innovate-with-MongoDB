@@ -20,13 +20,20 @@ export class GoogleMap extends Component {
     super(props);
     this.state = {
       markers: [],
+      isOpen: true,
+      showInfo: '0',
     };
   }
+  handleToggleOpen = () => {
+    this.setState({
+      ...this.state,
+      isOpen: true,
+    });
+  };
 
   componentDidMount() {
     axios.post(server_URL + 'fetch_shipwreck').then(results => {
-      console.log(results.data);
-      this.setState({ markers: results.data });
+      this.setState({ ...this.state, markers: results.data });
     });
   }
   render() {
@@ -41,18 +48,37 @@ export class GoogleMap extends Component {
           lng: '80.25544339744059',
         }}
       >
-        {this.state.markers.map(marker => {
-          return (
-            <Marker
-              key={marker._id}
-              position={{
-                lat: marker.latdec,
-                lng: marker.londec,
-              }}
-            />
-          );
-        })}
-        <InfoWindow onClose={this.onInfoWindowClose}></InfoWindow>
+        {this.state.markers &&
+          this.state.markers.map(marker => {
+            return (
+              <Marker
+                key={marker._id}
+                position={{
+                  lat: marker.latdec,
+                  lng: marker.londec,
+                }}
+                onClick={() =>
+                  this.setState({
+                    ...this.state,
+                    showInfo: marker._id,
+                    isOpen: true,
+                  })
+                }
+              >
+                {this.state.isOpen && (
+                  <InfoWindow
+                    onCloseClick={this.handleToggleOpen}
+                    position={{
+                      lat: marker.latdec,
+                      lng: marker.londec,
+                    }}
+                  >
+                    <h1>Hello</h1>
+                  </InfoWindow>
+                )}
+              </Marker>
+            );
+          })}
       </Map>
     );
   }
