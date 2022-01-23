@@ -18,7 +18,7 @@ const features = [{id: 1, title:"Who are we?" , text:"We are Team Gryffindor, a 
 {id: 4, title:"So what regions do you cover?" , text:"For now we cover the shipwrecks in the Asia-Pacific region with ideas of expanding throughout the globe :)"},
 {id: 5, title:"How do I add my own shipwreck data?" , text:"After logging in to the Dashboard, you can fill up our wreck in form and add to our database."},
 {id: 6, title:"Does my data get added instantly?" , text:"Once we verify the authencity of your information, it will be published onto our database."},
-{id: 7, title:"How authentic and accurate is the data of shipwrecks?" , text:"When an user adds details of a shipwreck, our team verifies the authencity of the data by requesting the users to give necessary proofs suppoprting their data. The data is accurate upto 1km from the marked location."},
+{id: 7, title:"How authentic and accurate is the shipwreck data?" , text:"When an user adds details of a shipwreck, our team verifies the authencity of the data by requesting the users to give necessary proofs suppoprting their data. The data is accurate upto 1km from the marked location."},
 {id: 8, title:"Customer Service" , text:"For any more queries, click on the chat icon below to talk directly to our representative."}
 ]
 export default function FAQs() {
