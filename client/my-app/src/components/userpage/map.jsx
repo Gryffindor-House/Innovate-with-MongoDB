@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import { API_KEY } from '../../config/googlemaps';
 import { server_URL } from '../../config/urls';
 import axios from 'axios';
@@ -20,20 +20,12 @@ export class GoogleMap extends Component {
     super(props);
     this.state = {
       markers: [],
-      isOpen: true,
-      showInfo: '0',
     };
   }
-  handleToggleOpen = () => {
-    this.setState({
-      ...this.state,
-      isOpen: true,
-    });
-  };
 
   componentDidMount() {
     axios.post(server_URL + 'fetch_shipwreck').then(results => {
-      this.setState({ ...this.state, markers: results.data });
+      this.setState({ markers: results.data });
     });
   }
   render() {
@@ -57,26 +49,7 @@ export class GoogleMap extends Component {
                   lat: marker.latdec,
                   lng: marker.londec,
                 }}
-                onClick={() =>
-                  this.setState({
-                    ...this.state,
-                    showInfo: marker._id,
-                    isOpen: true,
-                  })
-                }
-              >
-                {this.state.isOpen && (
-                  <InfoWindow
-                    onCloseClick={this.handleToggleOpen}
-                    position={{
-                      lat: marker.latdec,
-                      lng: marker.londec,
-                    }}
-                  >
-                    <h1>Hello</h1>
-                  </InfoWindow>
-                )}
-              </Marker>
+              ></Marker>
             );
           })}
       </Map>
