@@ -48,35 +48,18 @@ This is an example of how to list things you need to use the software and how to
   npm install npm@latest -g
   ```
 
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-   Clone the repo
-   ```sh
-   git clone https://github.com/Gryffindor-House/Innovate-with-MongoDB.git
-   ``` 
-   Install NPM packages
-   ```sh
-   npm install
-   ```
-   Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 In the project directory, you can run:
 
 ### `npm start in client/my-app directory`
 
-Runs both the client app and the server app in development mode.<br>
+Runs client app  in development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view the client in the browser.
 
 ### `nodemon app.js in server directory`
 
-Runs just the client app in development mode.<br>
+Runs just the server app in development mode.<br>
 Open [http://localhost:5000](http://localhost:5000) to view the server in the browser.
 
 
