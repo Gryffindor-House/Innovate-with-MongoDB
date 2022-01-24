@@ -115,7 +115,7 @@ const stats = [
     ),
   },
   {
-    title: 'Live Chatbot',
+    title: 'Live Chat',
     content: (
       <>
         <StatsText>Have any Questions?</StatsText> Just click on the chat icon and ask away!
