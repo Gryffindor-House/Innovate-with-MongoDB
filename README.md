@@ -36,7 +36,9 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [https://revelry.co/wp-content/uploads/2019/05/react-native-UX-design.gif][React.js](https://reactjs.org/)
+* <a href="https://reactjs.org/">
+    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Frevelry.co%2Fresources%2Fdesign%2Fux-design-react-native%2F&psig=AOvVaw3CjSooTOW4bPaxrOk_wR6I&ust=1643129892346000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNiJxv7tyvUCFQAAAAAdAAAAABAD" alt="Logo" width="150" height="80">
+  </a>
 * [Vue.js](https://vuejs.org/)
 * [Angular](https://angular.io/)
 * [Svelte](https://svelte.dev/)
