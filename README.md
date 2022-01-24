@@ -36,9 +36,7 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* <a href="https://reactjs.org/">
-    <img src="https://github.com/Gryffindor-House/Innovate-with-MongoDB/blob/Innovate-Chakra/images/react.gif" alt="Logo" width="150" height="80">
-  </a>
+* [React.js](https://reactjs.org/)
 * [Vue.js](https://vuejs.org/)
 * [Angular](https://angular.io/)
 * [Svelte](https://svelte.dev/)
