@@ -83,15 +83,34 @@ _Below is an example of how you can instruct your audience on installing and set
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start ` in client/my-app directory
+
+Runs both the client app and the server app in development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view the client in the browser.
+
+### `nodemon app.js` in server directory
+
+Runs just the client app in development mode.<br>
+Open [http://localhost:5000](http://localhost:5000) to view the server in the browser.
 
 
+### `npm run-script server`
 
-<!-- USAGE EXAMPLES -->
-## Usage
+Runs just the server in development mode.<br>
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+### `npm run build`
+
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+If deploying to heroku this does not need to be run since it is handled by the heroku-postbuild script<br>
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
