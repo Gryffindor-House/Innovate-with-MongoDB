@@ -76,5 +76,9 @@ It correctly bundles React in production mode and optimizes the build for the be
 If deploying to heroku this does not need to be run since it is handled by the heroku-postbuild script<br>
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  
+  
+<!-- GETTING STARTED -->
+## Project Screenshots  
 
 <p align="right">(<a href="#top">back to top</a>)</p>
