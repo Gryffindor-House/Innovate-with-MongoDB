@@ -52,7 +52,6 @@ This is an example of how to list things you need to use the software and how to
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
 1. Clone the repo
    ```sh
    git clone https://github.com/Gryffindor-House/Innovate-with-MongoDB.git
@@ -67,7 +66,6 @@ _Below is an example of how you can instruct your audience on installing and set
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-## Available Scripts
 
 In the project directory, you can run:
 
@@ -95,19 +93,5 @@ It correctly bundles React in production mode and optimizes the build for the be
 If deploying to heroku this does not need to be run since it is handled by the heroku-postbuild script<br>
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
