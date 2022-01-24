@@ -13,7 +13,6 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { GiShipWreck } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
-import { useUserAuth } from '../context/UserAuthContext';
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
