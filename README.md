@@ -79,6 +79,11 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
   
   
 <!-- GETTING STARTED -->
-## Project Screenshots  
+## Project Screenshots
+  
+![HomePage](https://github.com/Gryffindor-House/Innovate-with-MongoDB/blob/Innovate-Chakra/images/1.jpeg)  
+![HomePage](https://github.com/Gryffindor-House/Innovate-with-MongoDB/blob/Innovate-Chakra/images/2.jpeg)  
+![HomePage](https://github.com/Gryffindor-House/Innovate-with-MongoDB/blob/Innovate-Chakra/images/3.jpeg)  
 
+  
 <p align="right">(<a href="#top">back to top</a>)</p>
