@@ -53,11 +53,12 @@ export default function LoginForm() {
     params.append('email_id', login_form.email_id);
     params.append('password', login_form.password);
     axios.post(server_URL + 'login', params).then(res => {
+      console.log(res.data);
       if (res.data === true) {
         navigate('/user');
       } else {
         seterror(true);
-        navigate('/login');
+        navigate('/home');
       }
     });
   };
@@ -81,7 +82,9 @@ export default function LoginForm() {
           <Image
             alt={'Login Image'}
             objectFit={'cover'}
-            src={'https://c4.wallpaperflare.com/wallpaper/275/684/26/environment-underwater-ship-fish-shipwreck-hd-wallpaper-preview.jpg'}
+            src={
+              'https://c4.wallpaperflare.com/wallpaper/275/684/26/environment-underwater-ship-fish-shipwreck-hd-wallpaper-preview.jpg'
+            }
           />
         </Flex>
         <Flex p={8} flex={1} align={'center'} justify={'center'}>
