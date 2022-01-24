@@ -85,12 +85,12 @@ _Below is an example of how you can instruct your audience on installing and set
 
 In the project directory, you can run:
 
-### `npm start ` in client/my-app directory
+### `npm start in client/my-app directory`
 
 Runs both the client app and the server app in development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view the client in the browser.
 
-### `nodemon app.js` in server directory
+### `nodemon app.js in server directory`
 
 Runs just the client app in development mode.<br>
 Open [http://localhost:5000](http://localhost:5000) to view the server in the browser.
